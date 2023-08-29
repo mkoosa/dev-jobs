@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper">
     <header-container />
+    
   </div>
 </template>
 <script setup>

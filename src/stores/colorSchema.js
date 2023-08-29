@@ -10,6 +10,7 @@ const useColorSchemaStore = defineStore('colorSchema', () => {
     const body = document.querySelector('body');
     darkSchema.value ? body.classList.add('dark-theme') : body.classList.remove('dark-theme');
   };
+  
   const DARK_SCHEMA_COLOR = computed(() => darkSchema.value);
   
   return { darkSchema, CHANGE_COLOR_SCHEMA, DARK_SCHEMA_COLOR };
