@@ -3,7 +3,6 @@
 </template>
 
 <script setup>
-import { ref } from "vue"
-const title = ref("devjobs")
+import { ref } from "vue";
+const title = ref("devjobs");
 </script>
-
