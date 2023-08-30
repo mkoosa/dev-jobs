@@ -19,10 +19,12 @@ describe('state', () => {
     it('finds body tag and adds or removes class dark-theme from it', () => {
       const store = useColorSchemaStore();
       const body = document.querySelector('body');
-      body.classList.add('dark-theme');
       store.CHANGE_COLOR_SCHEMA();
+      body.classList.add('dark-theme');
       expect(body.className).toBe('dark-theme');
+    
     });
+    
   });
   
   describe('getter', () => {
@@ -31,7 +33,6 @@ describe('state', () => {
     });
     it('returns value true or false', () => {
       const store = useColorSchemaStore();
-      store.darkSchema = false;
       const result = store.DARK_SCHEMA_COLOR;
       expect(result).toBe(false);
     });

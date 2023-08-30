@@ -1,7 +1,7 @@
 <template>
   <div class="switcher">
     <img src="../../../src/assets/desktop/icon-sun.svg" alt="sun">
-    <div class="toggle-container" @click="CHANGE_COLOR_SCHEMA">
+    <div role="button" class="toggle-container" @click="CHANGE_COLOR_SCHEMA">
       <div class="circle"></div>
     </div>
     <font-awesome-icon :class="['moon', 'icon']" :icon="['fas', 'moon']" />
