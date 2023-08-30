@@ -1,6 +1,4 @@
-/*eslint-disable*/
 import SwitcherColorSchema from '@/components/Shared/SwitcherColorSchema.vue';
-import { describe, expect } from 'vitest';
 import { render, screen } from '@testing-library/vue';
 import useColorSchemaStore from '@/stores/ColorSchema';
 import { createTestingPinia } from '@pinia/testing';

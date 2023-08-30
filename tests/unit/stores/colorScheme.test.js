@@ -1,4 +1,3 @@
-/*eslint-disable*/
 import { createPinia, setActivePinia } from 'pinia';
 import useColorSchemaStore from '../../../src/stores/colorSchema';
 import { beforeEach, describe, expect } from 'vitest';
