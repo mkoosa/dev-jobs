@@ -1,5 +1,5 @@
 <template>
-  <input class="form__input" type="text" :value="modelValue" placeholder="Filter by tittle ..." @input="handleInput">
+  <input class="form__input" type="text" :value="modelValue" @input="handleInput">
 </template>
 <script setup>
 defineProps({
