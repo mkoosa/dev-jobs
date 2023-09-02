@@ -1,9 +1,13 @@
 <template>
-  <input class="form__input" type="text" :value="modelValue" @input="handleInput">
+  <input class="form__input" type="text" :value="modelValue" :placeholder="placeholder" @input="handleInput">
 </template>
 <script setup>
 defineProps({
   modelValue: {
+    type: String,
+    required: true
+  },
+  placeholder: {
     type: String,
     required: true
   }

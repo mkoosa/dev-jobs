@@ -1,32 +1,27 @@
 <template>
   <form class="form" @submit.prevent="jobSearch">
-    <div class="form__element mobile-view filter-by-tittle">
+    <form-elements element="text" :classElement="['form__element', 'mobile-view']">
+      <font-awesome-icon class="form__icon icon-filter" :icon="['fas', 'filter']" />
       <text-input v-model="tittle" placeholder="Filter by tittle ..." />
-      <div class="icon-wrapper icon-wrapper--filter">
-        <font-awesome-icon class="form__icon icon-filter" :icon="['fas', 'filter']" />
-        <action-btn type="insideIcon"><font-awesome-icon class="button-icon"
-            :icon="['fas', 'magnifying-glass']" /></action-btn>
-      </div>
-    </div>
-    <div class="form__element desktop-view">
-      <div class="icon-wrapper">
-        <font-awesome-icon class="form__icon" :icon="['fas', 'magnifying-glass']" />
-      </div>
+      <action-btn type="insideIcon"><font-awesome-icon class="button-icon"
+          :icon="['fas', 'magnifying-glass']" /></action-btn>
+    </form-elements>
+    <form-elements element="text" :classElement="['form__element', 'desktop-view']">
+      <font-awesome-icon class="form__icon" :icon="['fas', 'magnifying-glass']" />
       <text-input v-model="tittle" placeholder="Filter by tittle ..." />
-    </div>
+    </form-elements>
     <div class="flying-elements">
-      <div class="form__element filter-by-location flying-element">
-        <div class="icon-wrapper">
-          <font-awesome-icon class="form__icon" :icon="['fas', 'location-dot']" />
-        </div>
-        <text-input v-model="location" placeholder="Filter by location ..." />
-      </div>
 
-      <div class="form__element form__element--submit flying-element">
-        <input type="checkbox" id="full-time" />
-        <label class="label" for="full-time">Ful Time</label>
+      <form-elements element="text"
+        :classElement="['form__element', 'form__element--filter-by-location', 'flying-element']">
+        <font-awesome-icon class="form__icon" :icon="['fas', 'location-dot']" />
+        <text-input v-model="location" placeholder="Filter by location ..." />
+      </form-elements>
+
+      <form-elements element="checkbox" classLabel="label" forText="full-time" text="full-time"
+        :classElement="['form__element', 'form__element--job-type', 'flying-element']">
         <action-btn type="search-btn" text="Search" />
-      </div>
+      </form-elements>
     </div>
   </form>
 </template>
@@ -34,16 +29,18 @@
 <script setup>
 import TextInput from "../Shared/TextInput.vue";
 import ActionBtn from "../Shared/ActionBtn.vue";
+import FormElements from "../Shared/FormElements.vue";
 import { ref } from "vue";
 
-const tittle = ref('')
+
 const location = ref('')
+const tittle = ref('')
 
 const jobSearch = () => console.log('search');
 
 </script>
 
-<style scoped>
+<style>
 .form {
   position: relative;
   top: -4rem;
@@ -63,20 +60,18 @@ const jobSearch = () => console.log('search');
   border-radius: 1rem;
 }
 
-.form__element--submit {
+
+.form__element--job-type {
+  justify-content: start;
   flex-wrap: wrap;
 }
 
-.form__element--submit {
-  justify-content: start;
-}
-
-.filter-by-location {
+.form__element--filter-by-location {
   position: relative;
   justify-content: start;
 }
 
-.filter-by-location::after {
+.form__element--filter-by-location::after {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -91,12 +86,21 @@ const jobSearch = () => console.log('search');
   display: none;
 }
 
+.mobile-view .icon-filter {
+  order: 1;
+}
+
+.insideIcon {
+  order: 2;
+}
+
 .icon-wrapper--filter {
   margin-right: 2rem;
 }
 
 .icon-filter {
   margin-right: 1.5rem;
+  margin-left: auto;
 }
 
 .form__icon {
@@ -110,7 +114,6 @@ const jobSearch = () => console.log('search');
 }
 
 ::placeholder {
-  /* font-size: 1.6rem; */
   color: var(--grey);
 }
 
@@ -184,7 +187,7 @@ input[type="checkbox"]:focus {
   .form__element {
     width: auto;
     flex-basis: 33%;
-    justify-content: start;
+    justify-content: space-between
   }
 
   .flying-elements {
@@ -212,7 +215,7 @@ input[type="checkbox"]:focus {
     padding-inline: .7rem;
   }
 
-  .filter--byLocation {
+  .form__element--filter-by-location {
     border-inline: .1rem solid var(--dark-grey-lower-opacity);
     border-radius: 0;
   }
