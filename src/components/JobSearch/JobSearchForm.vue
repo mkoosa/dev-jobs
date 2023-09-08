@@ -11,14 +11,12 @@
       <text-input v-model="tittle" placeholder="Filter by tittle ..." />
     </form-elements>
     <div class="flying-elements">
-
       <form-elements element="text"
         :classElement="['form__element', 'form__element--filter-by-location', 'flying-element']">
         <font-awesome-icon class="form__icon" :icon="['fas', 'location-dot']" />
         <text-input v-model="location" placeholder="Filter by location ..." />
       </form-elements>
-
-      <form-elements element="checkbox" classLabel="label" forText="full-time" text="full-time"
+      <form-elements element="checkbox" classLabel="label" forText="full-time" text="Full Time"
         :classElement="['form__element', 'form__element--job-type', 'flying-element']">
         <action-btn type="search-btn" text="Search" />
       </form-elements>
@@ -27,17 +25,14 @@
 </template>
 
 <script setup>
-import TextInput from "../Shared/TextInput.vue";
-import ActionBtn from "../Shared/ActionBtn.vue";
-import FormElements from "../Shared/FormElements.vue";
+import TextInput from "@/components/Shared/TextInput.vue";
+import ActionBtn from "@/components/Shared/ActionBtn.vue";
+import FormElements from "@/components/Shared/FormElements.vue";
 import { ref } from "vue";
-
 
 const location = ref('')
 const tittle = ref('')
-
 const jobSearch = () => console.log('search');
-
 </script>
 
 <style>
@@ -48,6 +43,7 @@ const jobSearch = () => console.log('search');
   width: min(40rem, 90%);
   background-color: var(--white);
   border-radius: 1rem;
+  overflow: hidden;
 }
 
 .form__element {
@@ -59,7 +55,6 @@ const jobSearch = () => console.log('search');
   align-items: center;
   border-radius: 1rem;
 }
-
 
 .form__element--job-type {
   justify-content: start;
@@ -121,7 +116,7 @@ const jobSearch = () => console.log('search');
   padding: 3rem 2rem;
   font-size: 1.8rem;
   color: var(--very-dark-blue);
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: .05rem;
 }
 
@@ -187,7 +182,7 @@ input[type="checkbox"]:focus {
   .form__element {
     width: auto;
     flex-basis: 33%;
-    justify-content: space-between
+    justify-content: center
   }
 
   .flying-elements {
@@ -221,8 +216,8 @@ input[type="checkbox"]:focus {
   }
 
   input[type="checkbox"] {
-    width: 2em;
-    height: 2em;
+    width: 1.8em;
+    height: 1.8em;
   }
 
   input[type="checkbox"]::before {
@@ -239,6 +234,13 @@ input[type="checkbox"]:focus {
 
   .label {
     padding: 0 3rem 0 1.5rem;
+  }
+}
+
+@media only screen and (min-width:1200px) {
+
+  .label {
+    font-size: 1.7rem;
   }
 }
 </style>

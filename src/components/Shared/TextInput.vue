@@ -34,14 +34,13 @@ const handleInput = (event) => {
 :focus {
   border-bottom: .2rem solid var(--grey);
   margin-left: 2rem;
-
+  text-align: center;
 }
 
 @media screen and (min-width:768px) {
   .form__input {
-    width: 75%;
+    margin-left: 1.5rem;
   }
-
 }
 </style>
 

@@ -24,6 +24,7 @@ const buttonClass = computed(() => {
 </script>
 
 <style scoped>
+
 .insideIcon,
 .search-btn{
   width: 4.5rem;
@@ -31,7 +32,6 @@ const buttonClass = computed(() => {
   color: var(--white);
   background: var(--violet);
   border: none;
-  outline: none;
   border-radius: .5rem;
 }
 
@@ -45,11 +45,6 @@ const buttonClass = computed(() => {
   
 }
 
-.search-btn:focus{
-  outline: .2rem solid var(--grey);
-  outline-offset: .3rem;
-}
-
 @media screen and (min-width: 768px) {
   .search-btn{
     width: auto;
@@ -58,5 +53,4 @@ const buttonClass = computed(() => {
     cursor: pointer;
   }
 }
-
 </style>
