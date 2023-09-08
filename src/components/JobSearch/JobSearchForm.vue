@@ -233,7 +233,8 @@ input[type="checkbox"]:focus {
   }
 
   .label {
-    padding: 0 3rem 0 1.5rem;
+    padding: 0 3rem 0 2rem;
+    /* padding-inline: 2rem; */
   }
 }
 
