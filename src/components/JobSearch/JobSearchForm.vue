@@ -1,7 +1,7 @@
 <template>
-  <form class="form" @submit.prevent="jobSearch">
+  <form role="form" aria-label="look for jobs" class="form" @submit.prevent="jobSearch">
     <form-elements element="text" :classElement="['form__element', 'mobile-view']">
-      <font-awesome-icon class="form__icon icon-filter" :icon="['fas', 'filter']" />
+      <font-awesome-icon role="switch" @click="toggle" class="form__icon icon-filter" :icon="['fas', 'filter']" />
       <text-input v-model="tittle" placeholder="Filter by tittle ..." />
       <action-btn type="insideIcon"><font-awesome-icon class="button-icon"
           :icon="['fas', 'magnifying-glass']" /></action-btn>
@@ -10,7 +10,7 @@
       <font-awesome-icon class="form__icon" :icon="['fas', 'magnifying-glass']" />
       <text-input v-model="tittle" placeholder="Filter by tittle ..." />
     </form-elements>
-    <div class="flying-elements">
+    <div data-testid="fl-elements" class="flying-elements" :class="addRemoveActiveClass">
       <form-elements element="text"
         :classElement="['form__element', 'form__element--filter-by-location', 'flying-element']">
         <font-awesome-icon class="form__icon" :icon="['fas', 'location-dot']" />
@@ -18,7 +18,7 @@
       </form-elements>
       <form-elements element="checkbox" classLabel="label" forText="full-time" text="Full Time"
         :classElement="['form__element', 'form__element--job-type', 'flying-element']">
-        <action-btn type="search-btn" text="Search" />
+        <action-btn role="button" type="search-btn" text="Search" />
       </form-elements>
     </div>
   </form>
@@ -28,11 +28,15 @@
 import TextInput from "@/components/Shared/TextInput.vue";
 import ActionBtn from "@/components/Shared/ActionBtn.vue";
 import FormElements from "@/components/Shared/FormElements.vue";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
-const location = ref('')
-const tittle = ref('')
-const jobSearch = () => console.log('search');
+const location = ref('');
+const tittle = ref('');
+const isActiveClass = ref(false)
+
+const jobSearch = () => console.log(location.value);
+const toggle = () => isActiveClass.value = !isActiveClass.value
+const addRemoveActiveClass = computed(() => isActiveClass.value ? "active" : "") 
 </script>
 
 <style>
@@ -130,7 +134,11 @@ const jobSearch = () => console.log('search');
   background: var(--white);
   border-radius: .5rem;
   height: 24rem;
+  display: none;
+}
 
+.flying-elements.active {
+  display: block;
 }
 
 /* chekbox styling */
@@ -189,6 +197,10 @@ input[type="checkbox"]:focus {
     all: initial;
     display: flex;
     flex-grow: 1;
+  }
+
+  .flying-elements.active {
+    display: flex;
   }
 
   .flying-element {
