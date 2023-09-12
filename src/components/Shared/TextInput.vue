@@ -23,7 +23,7 @@ const handleInput = (event) => {
 
 <style scoped>
 .form__input {
-  width: 50%;
+  width: 55%;
   padding: .5em 1em;
   outline: none;
   font-size: 1.5rem;
@@ -32,9 +32,8 @@ const handleInput = (event) => {
 }
 
 :focus {
-  border-bottom: .2rem solid var(--grey);
-  margin-left: 2rem;
-  text-align: center;
+  border-bottom: .1rem solid var(--grey);
+  margin-left: 1rem;
 }
 
 @media screen and (min-width:768px) {

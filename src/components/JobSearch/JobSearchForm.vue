@@ -41,33 +41,40 @@ const addRemoveActiveClass = computed(() => isActiveClass.value ? "active" : "")
 
 <style>
 .form {
-  position: relative;
-  top: -4rem;
-  margin-inline: auto;
-  width: min(40rem, 90%);
+  position: fixed;
+  top: 10rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 93%;
+  max-width: 45rem;
   background-color: var(--white);
-  border-radius: 1rem;
+  border-radius: .7rem;
   overflow: hidden;
+  z-index: 10;
 }
 
 .form__element {
-  padding-inline: 2rem;
+  max-width: inherit;
+  padding-inline: 1.6rem;
   width: 100%;
-  height: 8rem;
+  height: 7rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 1rem;
 }
 
 .form__element--job-type {
   justify-content: start;
+  display: flex;
   flex-wrap: wrap;
 }
 
 .form__element--filter-by-location {
   position: relative;
   justify-content: start;
+  margin-inline: 1.5rem;
+  margin-inline: 1.5rem;
 }
 
 .form__element--filter-by-location::after {
@@ -98,14 +105,14 @@ const addRemoveActiveClass = computed(() => isActiveClass.value ? "active" : "")
 }
 
 .icon-filter {
-  margin-right: 1.5rem;
+  margin-right: 2rem;
   margin-left: auto;
 }
 
 .form__icon {
   margin-top: .5rem;
-  font-size: 2.5rem;
-  color: var(--light-violet);
+  font-size: 2.3rem;
+  color: var(--violet);
 }
 
 .button-icon {
@@ -113,7 +120,8 @@ const addRemoveActiveClass = computed(() => isActiveClass.value ? "active" : "")
 }
 
 ::placeholder {
-  color: var(--grey);
+  color: var(--dark-grey);
+  font-size: 1.7rem;
 }
 
 .label {
@@ -125,10 +133,9 @@ const addRemoveActiveClass = computed(() => isActiveClass.value ? "active" : "")
 }
 
 .flying-elements {
-  padding: 0 0 2rem 0;
-  top: 55%;
+  top: 45%;
   left: 50%;
-  width: min(40rem, 90%);
+  width: min(45rem, 90%);
   transform: translate(-50%, -50%);
   position: fixed;
   background: var(--white);
@@ -140,6 +147,7 @@ const addRemoveActiveClass = computed(() => isActiveClass.value ? "active" : "")
 .flying-elements.active {
   display: block;
 }
+
 
 /* chekbox styling */
 input[type="checkbox"] {
@@ -154,6 +162,7 @@ input[type="checkbox"] {
   border-radius: 0.3em;
   transform: translateY(-0.075em);
   outline: none;
+  margin-left: 1.5rem;
 }
 
 input[type="checkbox"]::before {
@@ -185,6 +194,7 @@ input[type="checkbox"]:focus {
   .form {
     width: 90%;
     display: flex;
+    max-width: 140rem;
   }
 
   .form__element {
@@ -199,18 +209,18 @@ input[type="checkbox"]:focus {
     flex-grow: 1;
   }
 
-  .flying-elements.active {
-    display: flex;
-  }
-
   .flying-element {
     flex-basis: 50%;
   }
 
+  .flying-elements.active {
+    display: flex;
+  }
+
+
   .flying-element:nth-of-type(2) {
     display: flex;
     justify-content: center;
-
   }
 
   .form__element--submit {
@@ -241,19 +251,22 @@ input[type="checkbox"]:focus {
 
 @media only screen and (min-width:1024px) {
   .form {
-    width: 80%;
+    top: 11rem;
   }
 
   .label {
     padding: 0 3rem 0 2rem;
-    /* padding-inline: 2rem; */
+    padding-inline: 2rem;
   }
 }
 
 @media only screen and (min-width:1200px) {
-
   .label {
     font-size: 1.7rem;
+  }
+
+  .form__icon {
+    font-size: 2.8rem;
   }
 }
 </style>

@@ -38,18 +38,20 @@ const buttonClass = computed(() => {
 
 .search-btn{
   width: 100%;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   letter-spacing: .1rem;
   font-weight: 700;
-  height: 5.5rem;
+  height: 5.2rem;
+  margin-inline: 1.5rem;
   
 }
 
 @media screen and (min-width: 768px) {
   .search-btn{
+    margin-inline:initial;
     width: auto;
     height: auto;
-    padding: .8em 1em;
+    padding: .6em .8em;
     cursor: pointer;
   }
 }
