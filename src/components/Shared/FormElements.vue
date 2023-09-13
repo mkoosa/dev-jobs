@@ -4,7 +4,7 @@
   </div>
   <div v-if="element == 'checkbox'" :class="classElement">
     <input type="checkbox" id="full-time" />
-    <label :class="classLabel" :for="forText">{{ text }}</label>
+    <label role="label" :class="classLabel" :for="forText">{{ text }}</label>
     <slot></slot>
   </div>
 </template>

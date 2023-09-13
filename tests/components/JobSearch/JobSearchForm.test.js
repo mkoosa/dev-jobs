@@ -36,6 +36,23 @@ describe('JobSearchForm', () => {
     expect(toggle).toHaveBeenCalledWith(true);
   });
 
+  it('emits click event when user has clicked on the button', async () => {
+    const { emitted } = render(JobSearchForm, {
+      global: {
+        stubs: {
+          FontAwesomeIcon: true
+        }
+      }
+    });
+    const switcher = screen.getByRole('switch');
+    await userEvent.click(switcher);
+    const toggle = vi.fn();
+    toggle(false != true);
+    expect(toggle).toHaveBeenCalledWith(true);
+    const button = emitted()['itemClicked'];
+    expect(button).toBeTruthy();
+  });
+
   it('retrieves value that user has entered to inputs ', async () => {
     renderJobSearchForm();
     const searchBtn = screen.getByRole('button', {
@@ -45,5 +62,29 @@ describe('JobSearchForm', () => {
     const jobSearch = vi.fn();
     jobSearch('pl');
     expect(jobSearch).toHaveBeenCalledWith('pl');
+  });
+  describe('captions in the button depending on screen sizes', () => {
+    it('displays content when user uses desktop', async () => {
+      renderJobSearchForm();
+      const changeButtonContent = vi.fn();
+      changeButtonContent(true);
+      expect(changeButtonContent).toHaveBeenCalledWith(true);
+      const label = await screen.findByRole('label', {
+        name: /Full Time/i
+      });
+      expect(label).toBeInTheDocument();
+    });
+    it('displays content when user uses mobile devise and clicks on filter icon', async () => {
+      renderJobSearchForm();
+      const switcher = screen.getByRole('switch');
+      await userEvent.click(switcher);
+      const changeButtonContent = vi.fn();
+      changeButtonContent(true);
+      expect(changeButtonContent).toHaveBeenCalledWith(true);
+      const label = await screen.findByRole('label', {
+        name: /Full Time Only/i
+      });
+      expect(label).toBeInTheDocument();
+    });
   });
 });
