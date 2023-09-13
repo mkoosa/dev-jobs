@@ -1,7 +1,7 @@
 <template>
   <form role="form" aria-label="look for jobs" class="form" @submit.prevent="jobSearch">
     <form-elements element="text" :classElement="['form__element', 'mobile-view']">
-      <font-awesome-icon role="switch" @click="toggle" class="form__icon icon-filter" :icon="['fas', 'filter']" />
+      <font-awesome-icon role="switch" @click="toggleClass" class="form__icon icon-filter" :icon="['fas', 'filter']" />
       <text-input v-model="tittle" placeholder="Filter by tittle ..." />
       <action-btn type="insideIcon"><font-awesome-icon class="button-icon"
           :icon="['fas', 'magnifying-glass']" /></action-btn>
@@ -10,13 +10,13 @@
       <font-awesome-icon class="form__icon" :icon="['fas', 'magnifying-glass']" />
       <text-input v-model="tittle" placeholder="Filter by tittle ..." />
     </form-elements>
-    <div data-testid="fl-elements" class="flying-elements" :class="addRemoveActiveClass">
+    <div data-testid="fl-elements" class="flying-elements" :class="addRemoveClass">
       <form-elements element="text"
         :classElement="['form__element', 'form__element--filter-by-location', 'flying-element']">
         <font-awesome-icon class="form__icon" :icon="['fas', 'location-dot']" />
         <text-input v-model="location" placeholder="Filter by location ..." />
       </form-elements>
-      <form-elements element="checkbox" classLabel="label" forText="full-time" text="Full Time"
+      <form-elements element="checkbox" classLabel="label" forText="full-time" :text="changeButtonContent"
         :classElement="['form__element', 'form__element--job-type', 'flying-element']">
         <action-btn role="button" type="search-btn" text="Search" />
       </form-elements>
@@ -32,11 +32,17 @@ import { ref, computed } from "vue";
 
 const location = ref('');
 const tittle = ref('');
-const isActiveClass = ref(false)
+const isActiveClass = ref(false);
 
+const emit = defineEmits(['itemClicked'])
 const jobSearch = () => console.log(location.value);
-const toggle = () => isActiveClass.value = !isActiveClass.value
-const addRemoveActiveClass = computed(() => isActiveClass.value ? "active" : "") 
+const toggleClass = () => {
+  isActiveClass.value = !isActiveClass.value
+  emit('itemClicked', isActiveClass.value);
+}
+
+const addRemoveClass = computed(() => isActiveClass.value ? "active" : "");
+const changeButtonContent = computed(() => isActiveClass.value ? "Full Time Only" : "Full Time")
 </script>
 
 <style>
@@ -50,8 +56,8 @@ const addRemoveActiveClass = computed(() => isActiveClass.value ? "active" : "")
   max-width: 45rem;
   background-color: var(--white);
   border-radius: .7rem;
-  overflow: hidden;
-  z-index: 10;
+  /* overflow: hidden; */
+  z-index: 5;
 }
 
 .form__element {
@@ -63,6 +69,7 @@ const addRemoveActiveClass = computed(() => isActiveClass.value ? "active" : "")
   justify-content: space-between;
   align-items: center;
 }
+
 
 .form__element--job-type {
   justify-content: start;
@@ -94,6 +101,23 @@ const addRemoveActiveClass = computed(() => isActiveClass.value ? "active" : "")
 
 .mobile-view .icon-filter {
   order: 1;
+}
+
+.mobile-view::after {
+  position: absolute;
+  content: '';
+  opacity: .4;
+  z-index: 4;
+  background-color: var(--light-grey);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.blur .mobile-view::after {
+  display: flex;
 }
 
 .insideIcon {
@@ -148,7 +172,6 @@ const addRemoveActiveClass = computed(() => isActiveClass.value ? "active" : "")
   display: block;
 }
 
-
 /* chekbox styling */
 input[type="checkbox"] {
   appearance: none;
@@ -182,6 +205,8 @@ input[type="checkbox"]:focus {
   border: .2rem solid var(--grey);
 }
 
+
+
 @media only screen and (min-width:768px) {
   .mobile-view {
     display: none;
@@ -195,12 +220,13 @@ input[type="checkbox"]:focus {
     width: 90%;
     display: flex;
     max-width: 140rem;
+
   }
 
   .form__element {
     width: auto;
     flex-basis: 33%;
-    justify-content: center
+    justify-content: center;
   }
 
   .flying-elements {
@@ -217,7 +243,6 @@ input[type="checkbox"]:focus {
     display: flex;
   }
 
-
   .flying-element:nth-of-type(2) {
     display: flex;
     justify-content: center;
@@ -230,11 +255,16 @@ input[type="checkbox"]:focus {
   .label {
     font-size: 1.4rem;
     padding-inline: .7rem;
+    width: max-content;
   }
 
   .form__element--filter-by-location {
     border-inline: .1rem solid var(--dark-grey-lower-opacity);
     border-radius: 0;
+  }
+
+  .form__element--job-type {
+    flex-wrap: nowrap;
   }
 
   input[type="checkbox"] {
