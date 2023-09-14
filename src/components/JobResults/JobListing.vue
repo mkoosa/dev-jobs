@@ -1,15 +1,17 @@
 <template>
   <div class="job">
-    <img class="logo" src="../../assets/logos/scoot.svg" alt="">
-    <p class="job__type"><span>5h aho</span><span class="dot">.</span><span>Fullt Time</span></p>
-    <h2 class="job__name">{{job.company}}</h2>
-    <p class="job__company">scoot</p>
-    <p class="job__location">Inited Kingdom</p>
+    <div class="logo-wrapper" :style="{ backgroundColor: job.logoBackground }">
+      <img class="logo" :src="srcPath(job.company)" alt="logo company">
+    </div>
+    <p class="job__type"><span>{{ job.postedAt }}</span><span class="dot">.</span><span>{{ job.contract }}</span></p>
+    <h2 class="job__name">{{ job.position }}</h2>
+    <p class="job__company">{{ job.company }}</p>
+    <p class="job__location">{{ job.location }}</p>
   </div>
-  
 </template>
 
 <script setup>
+
 defineProps({
   job: {
     type: Object,
@@ -17,26 +19,37 @@ defineProps({
   }
 
 })
+
+const srcPath = (company) => {
+  return `/src/assets/logos/${company.toLowerCase()}.svg`
+};
+
+
 </script>
 
 <style scoped>
 .job {
+  margin-inline: auto;
   margin-bottom: 6rem;
-  width: 100%;
   padding: 3.5rem 2.4rem;
   background: var(--white);
   position: relative;
+  max-width: 38rem;
+
 }
 
-.logo {
+.logo-wrapper {
   position: absolute;
+  top: -2.5rem;
   left: 3rem;
-  top: -2.7rem;
-  background-color: orange;
-  padding: 2em .7em;
-  background: hsl(216, 46%, 14%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5.4rem;
+  height: 5rem;
   border-radius: 1.5rem;
 }
+
 
 .job__type,
 .job__company {
@@ -67,6 +80,24 @@ defineProps({
   color: var(--violet);
   font-size: 1.5rem;
   font-weight: 600;
+}
+
+@media only screen and (min-width:768px) {
+  .job {
+    flex-basis: 100%;
+    margin: 3rem .8rem;
+    max-width: 35rem;
+    
+  }
+
+}
+@media only screen and (min-width:1024px) {
+  .job {
+    flex-basis: 100%;
+    /* margin: 3rem; */
+    
+  }
+
 }
 </style>
 

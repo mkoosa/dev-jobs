@@ -41,9 +41,9 @@ const isActive = (value) => {
   width: 100%;
   left: 50%;
   transform: translateX(-50%);
-  opacity: .4;
+  opacity: .3;
   z-index: 4;
-  background-color:var(--light-grey);
+  background-color:var(--light-violet);
   max-width: 145rem;
   
   

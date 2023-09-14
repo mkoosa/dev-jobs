@@ -64,12 +64,11 @@ const changeButtonContent = computed(() => isActiveClass.value ? "Full Time Only
   max-width: inherit;
   padding-inline: 1.6rem;
   width: 100%;
-  height: 7rem;
+  height: 8rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 
 .form__element--job-type {
   justify-content: start;
@@ -253,8 +252,9 @@ input[type="checkbox"]:focus {
   }
 
   .label {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     padding-inline: .7rem;
+    font-weight: 700;
     width: max-content;
   }
 
@@ -292,7 +292,7 @@ input[type="checkbox"]:focus {
 
 @media only screen and (min-width:1200px) {
   .label {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
   }
 
   .form__icon {

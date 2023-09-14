@@ -1,6 +1,6 @@
 <template>
   <div class="jobs">
-    <job-listing v-for="job in displayedJobs" :key="job.id" :job="job" ></job-listing>
+    <job-listing v-for="job in displayedJobs" :key="job.id" :job="job" />
   </div>
 </template>
 
@@ -16,7 +16,14 @@ onMounted(() => jobStore.FETCH_JOBS())
 
 </script>
 <style>
-.jobs {
-  position: relative;
+@media only screen and (min-width:768px) {
+  .jobs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    
+  }
+
 }
 </style>
