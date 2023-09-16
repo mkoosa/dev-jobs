@@ -13,7 +13,7 @@
     <div data-testid="fl-elements" class="flying-elements" :class="addRemoveClass">
       <form-elements element="text"
         :classElement="['form__element', 'form__element--filter-by-location', 'flying-element']">
-        <the-close :action="closeFlyingElements" :classIconElement="['close_icon']" />
+        <the-close :action="closeFlyingElements" classIconElement="close_icon" />
         <font-awesome-icon class="form__icon" :icon="['fas', 'location-dot']" />
         <text-input v-model="location" placeholder="Filter by location ..." />
       </form-elements>
@@ -40,14 +40,20 @@ const isActiveClass = ref(false);
 const emit = defineEmits(['itemClicked'])
 const jobSearch = () => console.log(location.value);
 
-const toggleClass = () => {
+const removeBlurEffect = () => {
   isActiveClass.value = !isActiveClass.value
   emit('itemClicked', isActiveClass.value);
 }
 
+const toggleClass = () => {
+  removeBlurEffect()
+}
+
 const closeFlyingElements = () => {
-  isActiveClass.value = !isActiveClass.value;
+  removeBlurEffect()
 };
+
+
 
 
 const addRemoveClass = computed(() => isActiveClass.value ? "active" : "");
@@ -181,7 +187,6 @@ const changeButtonContent = computed(() => isActiveClass.value ? "Full Time Only
   top: 1.5rem;
   right: 3.5rem;
   color: var(--violet);
-
 }
 
 .flying-elements.active {
@@ -257,6 +262,10 @@ input[type="checkbox"]:focus {
 
   .flying-elements.active {
     display: flex;
+  }
+
+  .close_icon{
+    display: none;
   }
 
   .flying-element:nth-of-type(2) {

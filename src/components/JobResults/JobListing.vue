@@ -34,8 +34,10 @@ const srcPath = (company) => {
   padding: 3.5rem 2.4rem;
   background: var(--white);
   position: relative;
-  max-width: 38rem;
+  max-width: 45rem;
   max-height: 23.5rem;
+  box-shadow: .1rem .1rem .4rem #e2e0e0;
+  border-radius: .5rem;
 
 }
 
@@ -88,24 +90,20 @@ const srcPath = (company) => {
   .job {
     flex-basis: 100%;
     margin: 3rem .8rem;
-    max-width: 35rem;
-
+    max-width: 37rem;
+    cursor: pointer;
   }
 
   .logo-wrapper {
     left: 2.3rem;
   }
-
-
 }
 
 @media only screen and (min-width:1024px) {
   .job {
     flex-basis: 100%;
-    /* margin: 3rem; */
-
+    max-width: 43rem;
   }
-
 }
 </style>
 

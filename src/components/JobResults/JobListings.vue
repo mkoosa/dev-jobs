@@ -19,10 +19,10 @@ onMounted(() => jobStore.FETCH_JOBS())
 @media only screen and (min-width:768px) {
   .jobs {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    
+
   }
 
 }

@@ -7,7 +7,7 @@ test('props', () => {
   const wrapper = mount(TheClose, {
     props: {
       action: Function,
-      classElementIcon: 'close_icon'
+      classIconElement: 'close_icon'
     },
     global: {
       stubs: {
@@ -16,6 +16,6 @@ test('props', () => {
     }
   });
 
-  expect(wrapper.props().classElementIcon).toBe('close_icon');
+  expect(wrapper.props().classIconElement).toBe('close_icon');
   expect(wrapper.props().action).toBe(Function);
 });

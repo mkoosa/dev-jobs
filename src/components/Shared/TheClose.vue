@@ -1,6 +1,6 @@
 <template>
   <div @click="action">
-    <font-awesome-icon data-testid="clos-Icon" :icon="['fas', 'xmark']" :class="classElementIcon" />
+    <font-awesome-icon data-testid="clos-Icon" :icon="['fas', 'xmark']" :class="classIconElement" />
   </div>
 </template>
 
@@ -10,7 +10,7 @@ defineProps({
     type: Function,
     required: true
   },
-  classElementIcon: {
+  classIconElement: {
     type: String,
     required: true
   }

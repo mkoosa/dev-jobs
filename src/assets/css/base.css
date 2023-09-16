@@ -72,6 +72,11 @@ body {
   background: var(--white);
 }
 
+p {
+  font-size: 1.6rem;
+  font-weight: 2.6rem;
+}
+
 /* dark mode  */
 body,
 .wrapper {
