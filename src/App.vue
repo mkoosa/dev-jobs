@@ -1,8 +1,7 @@
 <template>
-  <the-main />
+  <router-view />
 </template>
 <script setup>
-import TheMain from '@/components/View/TheMain.vue';
 </script>
 
 <style>
