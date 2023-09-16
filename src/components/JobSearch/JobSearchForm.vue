@@ -13,6 +13,7 @@
     <div data-testid="fl-elements" class="flying-elements" :class="addRemoveClass">
       <form-elements element="text"
         :classElement="['form__element', 'form__element--filter-by-location', 'flying-element']">
+        <the-close :action="closeFlyingElements" :classIconElement="['close_icon']" />
         <font-awesome-icon class="form__icon" :icon="['fas', 'location-dot']" />
         <text-input v-model="location" placeholder="Filter by location ..." />
       </form-elements>
@@ -28,6 +29,8 @@
 import TextInput from "@/components/Shared/TextInput.vue";
 import ActionBtn from "@/components/Shared/ActionBtn.vue";
 import FormElements from "@/components/Shared/FormElements.vue";
+import TheClose from "@/components//Shared/TheClose.vue";
+
 import { ref, computed } from "vue";
 
 const location = ref('');
@@ -36,10 +39,16 @@ const isActiveClass = ref(false);
 
 const emit = defineEmits(['itemClicked'])
 const jobSearch = () => console.log(location.value);
+
 const toggleClass = () => {
   isActiveClass.value = !isActiveClass.value
   emit('itemClicked', isActiveClass.value);
 }
+
+const closeFlyingElements = () => {
+  isActiveClass.value = !isActiveClass.value;
+};
+
 
 const addRemoveClass = computed(() => isActiveClass.value ? "active" : "");
 const changeButtonContent = computed(() => isActiveClass.value ? "Full Time Only" : "Full Time")
@@ -56,7 +65,6 @@ const changeButtonContent = computed(() => isActiveClass.value ? "Full Time Only
   max-width: 45rem;
   background-color: var(--white);
   border-radius: .7rem;
-  /* overflow: hidden; */
   z-index: 5;
 }
 
@@ -167,6 +175,15 @@ const changeButtonContent = computed(() => isActiveClass.value ? "Full Time Only
   display: none;
 }
 
+.close_icon {
+  font-size: 2.4rem;
+  position: absolute;
+  top: 1.5rem;
+  right: 3.5rem;
+  color: var(--violet);
+
+}
+
 .flying-elements.active {
   display: block;
 }
@@ -218,7 +235,7 @@ input[type="checkbox"]:focus {
   .form {
     width: 90%;
     display: flex;
-    max-width: 140rem;
+    max-width: 125rem;
 
   }
 

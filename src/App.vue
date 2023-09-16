@@ -2,7 +2,7 @@
   <div class="wrapper" :class="addRemoveClass">
     <header-container />
     <div class="main">
-      <job-search-form @item-clicked="isActive" />
+      <job-search-form @item-clicked="isActiveClass" />
       <job-listings />
     </div>
   </div>
@@ -16,7 +16,7 @@ import { computed, ref } from "vue"
 const isClassActive = ref(false)
 const addRemoveClass = computed(() => isClassActive.value ? 'blur' : '')
 
-const isActive = (value) => {
+const isActiveClass = (value) => {
   isClassActive.value = value;
 }
 

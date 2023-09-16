@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/vue';
 import userEvent from '@testing-library/user-event';
 import JobSearchForm from '@/components/JobSearch/JobSearchForm.vue';
-import { describe, expect } from 'vitest';
+import { describe, expect, vi } from 'vitest';
 
 describe('JobSearchForm', () => {
   const renderJobSearchForm = () => {
@@ -13,6 +13,7 @@ describe('JobSearchForm', () => {
       }
     });
   };
+
   it('renders JobSearchForm component', () => {
     renderJobSearchForm();
     const component = screen.getByRole('form');
@@ -27,15 +28,6 @@ describe('JobSearchForm', () => {
     expect(flElements).toHaveClass('active');
   });
 
-  it('change isActiveClass value from false to true ', async () => {
-    renderJobSearchForm();
-    const switcher = screen.getByRole('switch');
-    await userEvent.click(switcher);
-    const toggle = vi.fn();
-    toggle(false != true);
-    expect(toggle).toHaveBeenCalledWith(true);
-  });
-
   it('emits click event when user has clicked on the button', async () => {
     const { emitted } = render(JobSearchForm, {
       global: {
@@ -46,9 +38,6 @@ describe('JobSearchForm', () => {
     });
     const switcher = screen.getByRole('switch');
     await userEvent.click(switcher);
-    const toggle = vi.fn();
-    toggle(false != true);
-    expect(toggle).toHaveBeenCalledWith(true);
     const button = emitted()['itemClicked'];
     expect(button).toBeTruthy();
   });
@@ -63,28 +52,35 @@ describe('JobSearchForm', () => {
     jobSearch('pl');
     expect(jobSearch).toHaveBeenCalledWith('pl');
   });
-  describe('captions in the button depending on screen sizes', () => {
-    it('displays content when user uses desktop', async () => {
+
+  describe('label content depending on screen sizes', () => {
+    it('displays label content when user uses desktop', async () => {
       renderJobSearchForm();
-      const changeButtonContent = vi.fn();
-      changeButtonContent(true);
-      expect(changeButtonContent).toHaveBeenCalledWith(true);
       const label = await screen.findByRole('label', {
         name: /Full Time/i
       });
       expect(label).toBeInTheDocument();
     });
-    it('displays content when user uses mobile devise and clicks on filter icon', async () => {
+
+    it('displays label content when user uses mobile devise and clicks on filter icon', async () => {
       renderJobSearchForm();
       const switcher = screen.getByRole('switch');
       await userEvent.click(switcher);
-      const changeButtonContent = vi.fn();
-      changeButtonContent(true);
-      expect(changeButtonContent).toHaveBeenCalledWith(true);
       const label = await screen.findByRole('label', {
         name: /Full Time Only/i
       });
       expect(label).toBeInTheDocument();
     });
+  });
+
+  it('removes active class from flying elements when the user clicks on close icon', async () => {
+    renderJobSearchForm();
+    const switcher = screen.getByRole('switch');
+    await userEvent.click(switcher);
+    const closeIcon = screen.getByTestId('clos-Icon');
+    await userEvent.click(closeIcon);
+    expect(closeIcon).toBeInTheDocument();
+    const flElements = screen.getByTestId('fl-elements');
+    expect(flElements).not.toHaveClass('active');
   });
 });
