@@ -1,11 +1,10 @@
 import axios from 'axios';
-
-// const URL = 'https://api.npoint.io/745a8514c0046f140ff7';
-const URL = 'https://json.extendsclass.com/bin/edca44a67ace';
+const URL = 'https://api.jsonbin.io/v3/b/650478778d92e126ae6d1617';
 
 const getJobs = async () => {
   const result = await axios.get(URL);
-  return result.data;
-};
+  console.log(result.data);
+  return result.data.record;
+}
 
 export default getJobs;
