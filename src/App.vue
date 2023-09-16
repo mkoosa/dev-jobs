@@ -1,4 +1,5 @@
 <template>
+  <router-view />
   <the-main />
 </template>
 <script setup>
