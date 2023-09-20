@@ -1,13 +1,13 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 
 // components
-import TheMain from '@/components/View/TheMain.vue';
+import TheHome from '@/components/View/TheHome.vue';
 
 const routes = [
   {
     path: '/',
-    name: 'Main',
-    component: TheMain
+    name: 'Home',
+    component: TheHome
   }
 ];
 
