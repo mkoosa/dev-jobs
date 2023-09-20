@@ -72,7 +72,7 @@ const changeButtonContent = computed(() => isActiveClass.value ? "Full Time Only
   z-index: 5;
 }
 
-.form::after{
+.form::after {
   position: absolute;
   bottom: -2rem;
   left: 0;
@@ -253,8 +253,10 @@ input[type="checkbox"]:focus {
 
   }
 
-  .form::after{
-    /* display: none; */
+  .form::after {
+    bottom: -3rem;
+    height: 3rem;
+
   }
 
   .form__element {
@@ -277,7 +279,7 @@ input[type="checkbox"]:focus {
     display: flex;
   }
 
-  .close_icon{
+  .close_icon {
     display: none;
   }
 

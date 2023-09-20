@@ -45,14 +45,12 @@ const currentPage = ref(2)
     background: var(--white);
     border-radius: .5rem;
   }
-
-
-
 }
 
 @media only screen and (min-width: 768px) {
   .pagination {
     justify-content: end;
+    top: 22rem;
     padding-right: 4rem;
     box-shadow: .1rem .1rem .4rem #e2e0e0;
   }

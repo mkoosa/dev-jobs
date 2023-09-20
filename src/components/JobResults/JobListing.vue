@@ -94,7 +94,7 @@ const srcPath = (company) => {
   .job {
     flex-basis: 100%;
     margin: 3rem .8rem;
-    max-width: 37rem;
+    max-width: 65rem;
     cursor: pointer;
   }
 
