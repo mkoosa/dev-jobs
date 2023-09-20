@@ -4,6 +4,7 @@
     <div class="main">
       <job-search-form @item-clicked="isActiveClass" />
       <job-listings />
+      <the-pagination />
     </div>
   </div>
 </template>
@@ -12,6 +13,7 @@
 import HeaderContainer from '@/components/Header/HeaderContainer.vue';
 import JobSearchForm from '@/components/JobSearch/JobSearchForm.vue';
 import JobListings from '@/components/JobResults/JobListings.vue';
+import ThePagination from '@/components/Pagination/ThePagination.vue';
 import { computed, ref } from "vue"
 
 const isClassActive = ref(false)
@@ -24,7 +26,7 @@ const isActiveClass = (value) => {
 
 <style>
 .main {
-  padding: 9rem 2rem 3rem 2rem;
+  padding: 10rem 2rem 3rem 2rem;
   width: 100%;
   position: relative;
 }
@@ -44,5 +46,11 @@ const isActiveClass = (value) => {
   background-color: var(--light-violet);
   filter: blur(4rem);
   max-width: 145rem;
+}
+
+@media only screen and (min-width:768px){
+  .main{
+    padding-top: 9rem;
+  }
 }
 </style>

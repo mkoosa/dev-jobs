@@ -4,7 +4,7 @@
       <img class="logo" :src="srcPath(job.company)" alt="logo company">
     </div>
     <p class="job__type"><span>{{ job.postedAt }}</span><span class="dot">.</span><span>{{ job.contract }}</span></p>
-    <h2 class="position">{{ job.position }}</h2>
+    <h2 class="job__position">{{ job.position }}</h2>
     <p class="job__company">{{ job.company }}</p>
     <p class="job__location">{{ job.location }}</p>
   </div>
@@ -41,6 +41,10 @@ const srcPath = (company) => {
 
 }
 
+.job:last-of-type{
+  margin-bottom: 2rem;
+}
+
 .logo-wrapper {
   position: absolute;
   top: -2.5rem;
@@ -67,9 +71,9 @@ const srcPath = (company) => {
   font-size: 3rem;
 }
 
-.position {
+.job__position {
   margin-top: 1.2rem;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: var(--dark);
   white-space: nowrap;
@@ -103,6 +107,10 @@ const srcPath = (company) => {
   .job {
     flex-basis: 100%;
     max-width: 43rem;
+  }
+
+  .job__position{
+    font-size: 2rem;
   }
 }
 </style>

@@ -54,8 +54,6 @@ const closeFlyingElements = () => {
 };
 
 
-
-
 const addRemoveClass = computed(() => isActiveClass.value ? "active" : "");
 const changeButtonContent = computed(() => isActiveClass.value ? "Full Time Only" : "Full Time")
 </script>
@@ -72,6 +70,17 @@ const changeButtonContent = computed(() => isActiveClass.value ? "Full Time Only
   background-color: var(--white);
   border-radius: .7rem;
   z-index: 5;
+}
+
+.form::after{
+  position: absolute;
+  bottom: -2rem;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 2rem;
+  background-color: var(--light-grey);
+  z-index: 100;
 }
 
 .form__element {
@@ -242,6 +251,10 @@ input[type="checkbox"]:focus {
     display: flex;
     max-width: 125rem;
 
+  }
+
+  .form::after{
+    /* display: none; */
   }
 
   .form__element {

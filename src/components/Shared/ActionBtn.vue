@@ -24,9 +24,8 @@ const buttonClass = computed(() => {
 </script>
 
 <style scoped>
-
 .insideIcon,
-.search-btn{
+.search-btn {
   width: 4.5rem;
   height: 4.5rem;
   color: var(--white);
@@ -36,23 +35,55 @@ const buttonClass = computed(() => {
 }
 
 
-.search-btn{
+.search-btn {
   width: 100%;
   font-size: 1.7rem;
   letter-spacing: .1rem;
   font-weight: 700;
   height: 5.2rem;
   margin-inline: 1.5rem;
-  
+}
+
+.pagination__button {
+  color: var(--violet);
+  background: transparent;
+  /* outline: none; */
+  border: .2rem solid var(--violet);
+  border-radius: 2.3rem;
+  padding: .7em 0;
+  width: 11rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.pagination__button:nth-of-type(1) {
+  margin-right: 1rem;
 }
 
 @media screen and (min-width: 768px) {
-  .search-btn{
-    margin-inline:initial;
+  .search-btn {
+    margin-inline: initial;
     width: auto;
     height: auto;
     padding: .6em .8em;
     cursor: pointer;
   }
+
+  .pagination__button:nth-of-type(1) {
+    margin-right: 0;
+  }
+
+  .pagination__button {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    border-radius: 0;
+    padding: 0 .5rem;
+    width: 0;
+    cursor: pointer;
+    border: none;
+  }
+
+  .pagination__button{outline-color: var(--violet);}
 }
 </style>

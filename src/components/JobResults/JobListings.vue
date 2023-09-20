@@ -18,11 +18,11 @@ onMounted(() => jobStore.FETCH_JOBS())
 <style>
 @media only screen and (min-width:768px) {
   .jobs {
+    margin-top: 5rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-
   }
 
 }
