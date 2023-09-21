@@ -32,13 +32,13 @@ import FormElements from "@/components/Shared/FormElements.vue";
 import TheClose from "@/components//Shared/TheClose.vue";
 import { useRouter } from "vue-router"
 import { ref, computed } from "vue";
+import useBlur from "@//stores/blur";
 
 const location = ref('');
 const tittle = ref('');
 const isActiveClass = ref(false);
-const router = useRouter()
-
-const emit = defineEmits(['itemClicked']);
+const router = useRouter();
+const blur = useBlur()
 
 const jobSearch = () => {
   router.push({
@@ -49,15 +49,17 @@ const jobSearch = () => {
 
 const removeBlurEffect = () => {
   isActiveClass.value = !isActiveClass.value
-  emit('itemClicked', isActiveClass.value);
 }
 
 const toggleClass = () => {
-  removeBlurEffect()
+  removeBlurEffect();
+  blur.ACTIVATE_BLUR();
+  
 }
 
 const closeFlyingElements = () => {
   removeBlurEffect()
+  blur.ACTIVATE_BLUR();
 };
 
 
@@ -90,6 +92,10 @@ const changeButtonContent = computed(() => isActiveClass.value ? "Full Time Only
   z-index: 100;
 }
 
+.blur .form::after{
+  display: none;
+
+}
 .form__element {
   max-width: inherit;
   padding-inline: 1.6rem;

@@ -7,10 +7,11 @@
 
 <script setup>
 import HeaderContainer from '@/components/Header/HeaderContainer.vue';
-import { computed, ref } from "vue"
+import { computed} from "vue";
+import useBlur from '@/stores/blur';
 
-const isClassActive = ref(false)
-const addRemoveClass = computed(() => isClassActive.value ? 'blur' : '')
+const blur = useBlur()
+const addRemoveClass = computed(() => blur.BLUR ? 'blur' : '')
 </script>
 
 <style>
