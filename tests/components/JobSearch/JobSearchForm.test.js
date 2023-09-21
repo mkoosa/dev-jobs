@@ -2,8 +2,12 @@ import { render, screen } from '@testing-library/vue';
 import userEvent from '@testing-library/user-event';
 import JobSearchForm from '@/components/JobSearch/JobSearchForm.vue';
 import { describe, expect, vi } from 'vitest';
+import { useRouter } from 'vue-router';
+vi.mock('vue-router');
 
 describe('JobSearchForm', () => {
+  const push = vi.fn();
+  useRouter.mockReturnValue({ push });
   const renderJobSearchForm = () => {
     render(JobSearchForm, {
       global: {
@@ -49,8 +53,12 @@ describe('JobSearchForm', () => {
     });
     await userEvent.click(searchBtn);
     const jobSearch = vi.fn();
-    jobSearch('pl');
-    expect(jobSearch).toHaveBeenCalledWith('pl');
+    jobSearch('Lublin');
+    expect(jobSearch).toHaveBeenCalledWith('Lublin');
+    expect(push).toHaveBeenCalled({
+      name: 'JobResults',
+      query: { title: 'vue developer', location: 'Lublin' }
+    });
   });
 
   describe('label content depending on screen sizes', () => {

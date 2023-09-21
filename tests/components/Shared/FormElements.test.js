@@ -1,6 +1,7 @@
 import { test, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
 import FormElements from '@/components/Shared/FormElements.vue';
+import { RouterLinkStub } from '@vue/test-utils';
 
 describe('FormElements', () => {
   const createProps = (props = {}) => ({
@@ -10,7 +11,13 @@ describe('FormElements', () => {
   const renderFormElements = (props) => {
     expect(FormElements).toBeTruthy();
     const element = mount(FormElements, {
-      props
+      props,
+      global: {
+        stubs: {
+          FontAwesomeIcon: true,
+          RouterLink: RouterLinkStub
+        }
+      }
     });
     return element;
   };

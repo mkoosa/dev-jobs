@@ -1,6 +1,7 @@
 import JobListing from '@/components/JobResults/JobListing.vue';
 import { render, screen } from '@testing-library/vue';
 import { expect } from 'vitest';
+import {RouterLinkStub} from '@vue/test-utils'
 
 describe('JobListing', () => {
   it('populate values from job offer', () => {
@@ -12,6 +13,12 @@ describe('JobListing', () => {
           postedAt: '5h ago',
           contract: 'full time',
           location: 'Los Angeles'
+        }
+      },
+      global: {
+        stubs: {
+          FontAwesomeIcon: true,
+          RouterLink:RouterLinkStub
         }
       }
     });
