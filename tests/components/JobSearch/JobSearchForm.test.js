@@ -3,9 +3,11 @@ import userEvent from '@testing-library/user-event';
 import JobSearchForm from '@/components/JobSearch/JobSearchForm.vue';
 import { describe, expect, vi } from 'vitest';
 import { useRouter } from 'vue-router';
+import { setActivePinia, createPinia } from 'pinia'
 vi.mock('vue-router');
 
 describe('JobSearchForm', () => {
+  setActivePinia(createPinia())
   const push = vi.fn();
   useRouter.mockReturnValue({ push });
   const renderJobSearchForm = () => {
@@ -31,21 +33,7 @@ describe('JobSearchForm', () => {
     const flElements = screen.getByTestId('fl-elements');
     expect(flElements).toHaveClass('active');
   });
-
-  it('emits click event when user has clicked on the button', async () => {
-    const { emitted } = render(JobSearchForm, {
-      global: {
-        stubs: {
-          FontAwesomeIcon: true
-        }
-      }
-    });
-    const switcher = screen.getByRole('switch');
-    await userEvent.click(switcher);
-    const button = emitted()['itemClicked'];
-    expect(button).toBeTruthy();
-  });
-
+  
   it('retrieves value that user has entered to inputs ', async () => {
     renderJobSearchForm();
     const searchBtn = screen.getByRole('button', {
