@@ -30,15 +30,22 @@ import TextInput from "@/components/Shared/TextInput.vue";
 import ActionBtn from "@/components/Shared/ActionBtn.vue";
 import FormElements from "@/components/Shared/FormElements.vue";
 import TheClose from "@/components//Shared/TheClose.vue";
-
+import { useRouter } from "vue-router"
 import { ref, computed } from "vue";
 
 const location = ref('');
 const tittle = ref('');
 const isActiveClass = ref(false);
+const router = useRouter()
 
-const emit = defineEmits(['itemClicked'])
-const jobSearch = () => console.log(location.value);
+const emit = defineEmits(['itemClicked']);
+
+const jobSearch = () => {
+  router.push({
+    name: "Main",
+    query: { tittle: tittle.value, location: location.value }
+  })
+};
 
 const removeBlurEffect = () => {
   isActiveClass.value = !isActiveClass.value

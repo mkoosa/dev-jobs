@@ -1,5 +1,6 @@
 <template>
   <div class="main">
+    <job-search-form @item-clicked="isActiveClass" />
     <job-listings />
     <the-pagination />
   </div>
@@ -8,11 +9,17 @@
 
 <script setup>
 import JobListings from '@/components/JobResults/JobListings.vue';
+import JobSearchForm from '@/components/JobSearch/JobSearchForm.vue';
 import ThePagination from '@/components/Pagination/ThePagination.vue';
+import { ref } from "vue"
 
+const isClassActive = ref(false);
+const isActiveClass = (value) => {
+  isClassActive.value = value;
+}
 </script>
 
-<style scoped>
+<style>
 .main {
   padding: 10rem 2rem 3rem 2rem;
   width: 100%;

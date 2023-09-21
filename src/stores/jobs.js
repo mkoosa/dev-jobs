@@ -9,7 +9,7 @@ const useJobsStore = defineStore('jobStore', () => {
     jobs.value = await getJobs();
   };
 
-  const ALL_JOBS = computed(() => jobs.value.record);
+  const ALL_JOBS = computed(() => jobs.value.record.slice(0, 12));
   return { jobs, FETCH_JOBS, ALL_JOBS };
 });
 

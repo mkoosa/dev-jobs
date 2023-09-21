@@ -1,23 +1,16 @@
 <template>
   <div class="wrapper" :class="addRemoveClass">
     <header-container />
-    <job-search-form @item-clicked="isActiveClass" />
-    <the-main />
+    <router-view/>
   </div>
 </template>
 
 <script setup>
 import HeaderContainer from '@/components/Header/HeaderContainer.vue';
-import JobSearchForm from '@/components/JobSearch/JobSearchForm.vue';
-import TheMain from '@/components/View/TheMain.vue';
 import { computed, ref } from "vue"
 
 const isClassActive = ref(false)
 const addRemoveClass = computed(() => isClassActive.value ? 'blur' : '')
-
-const isActiveClass = (value) => {
-  isClassActive.value = value;
-}
 </script>
 
 <style>

@@ -8,12 +8,12 @@
     <slot></slot>
   </div>
 </template>
-<script setup>
 
+<script setup>
 defineProps({
   element: {
     type: String,
-    required: true
+    required: true,
   },
   classLabel: {
     type: String,
@@ -24,11 +24,10 @@ defineProps({
 
   text: {
     type: String,
-
   },
   classElement: {
     type: Object,
-    required: true
+    required: true,
   },
-})
+});
 </script>

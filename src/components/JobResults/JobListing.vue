@@ -1,5 +1,5 @@
 <template>
-  <div class="job">
+  <RouterLink :to="pageLink" class="job">
     <div class="logo-wrapper" :style="{ backgroundColor: job.logoBackground }">
       <img class="logo" :src="srcPath(job.company)" alt="logo company">
     </div>
@@ -7,12 +7,13 @@
     <h2 class="job__position">{{ job.position }}</h2>
     <p class="job__company">{{ job.company }}</p>
     <p class="job__location">{{ job.location }}</p>
-  </div>
+  </RouterLink>
 </template>
 
 <script setup>
+import { computed } from "vue"
 
-defineProps({
+const props = defineProps({
   job: {
     type: Object,
     required: true
@@ -25,10 +26,14 @@ const srcPath = (company) => {
 };
 
 
+const pageLink = computed(() => `/jobs/results/${props.job.id}`)
+
 </script>
 
 <style scoped>
 .job {
+  display: flex;
+  flex-direction: column;
   margin-inline: auto;
   margin-bottom: 6rem;
   padding: 3.5rem 2.4rem;
@@ -38,10 +43,9 @@ const srcPath = (company) => {
   max-height: 23.5rem;
   box-shadow: .1rem .1rem .4rem #e2e0e0;
   border-radius: .5rem;
-
 }
 
-.job:last-of-type{
+.job:last-of-type {
   margin-bottom: 2rem;
 }
 
@@ -109,7 +113,7 @@ const srcPath = (company) => {
     max-width: 43rem;
   }
 
-  .job__position{
+  .job__position {
     font-size: 2rem;
   }
 }

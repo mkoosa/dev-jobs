@@ -1,18 +1,25 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 
 // components
-import TheHome from '@/components/View/TheHome.vue';
+import Main from '@/components/View/TheMain.vue';
+import Job from '@/components/View/TheJob.vue';
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: TheHome
+    name: 'Main',
+    component: Main,
+    
+  },
+  {
+    path: '/jobs/results/:id',
+    name: 'Job',
+    component: Job
   }
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes
 });
 

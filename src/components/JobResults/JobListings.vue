@@ -1,17 +1,23 @@
 <template>
   <div class="jobs">
-    <job-listing v-for="job in displayedJobs" :key="job.id" :job="job" />
+    <job-listing v-for="job in jobs" :key="job.id" :job="job" />
   </div>
+ 
 </template>
 
 <script setup>
 import JobListing from "@/components/JobResults/JobListing.vue"
 import useJobsStore from "@/stores/jobs.js";
-import { onMounted, computed } from 'vue'
+import { onMounted, ref } from 'vue'
 
+const jobs = ref([])
 const jobStore = useJobsStore()
-const displayedJobs = computed(() => jobStore.ALL_JOBS)
-onMounted(() => jobStore.FETCH_JOBS())
+
+onMounted(async () => {
+  await jobStore.FETCH_JOBS();
+  jobs.value = jobStore.ALL_JOBS
+
+})
 
 
 </script>
