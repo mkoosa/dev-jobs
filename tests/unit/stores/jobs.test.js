@@ -1,5 +1,5 @@
 import { createPinia, setActivePinia } from 'pinia';
-import useJobsStore from '../../../src/stores/jobs';
+import { jobStore } from '@/main';
 import { beforeEach, describe, expect } from 'vitest';
 import axios from 'axios';
 vi.mock('axios');
@@ -9,7 +9,7 @@ describe('state', () => {
     setActivePinia(createPinia());
   });
   it('stores jobs use can apply for', () => {
-    const store = useJobsStore();
+    const store = jobStore;
     expect(store.jobs).toEqual([]);
   });
 });
@@ -21,7 +21,7 @@ describe('actions', () => {
   describe('FETCH_JOBS', () => {
     it('fetches jobs from Api', async () => {
       axios.get.mockResolvedValue({ data: ['Job1', 'Job2'] });
-      const store = useJobsStore();
+      const store = jobStore;
       await store.FETCH_JOBS();
       expect(store.jobs).toEqual(['Job1', 'Job2']);
     });
@@ -32,7 +32,7 @@ describe('actions', () => {
       setActivePinia(createPinia());
     });
     it('returns jobs', () => {
-      const store = useJobsStore();
+      const store = jobStore;
       store.jobs.record = ['Job1', 'Job2'];
       const result = store.ALL_JOBS;
       expect(result).toEqual(['Job1', 'Job2']);
