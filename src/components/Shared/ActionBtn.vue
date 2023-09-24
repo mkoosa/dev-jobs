@@ -71,6 +71,7 @@ const buttonClass = computed(() => {
 
   .pagination__button:nth-of-type(1) {
     margin-right: 0;
+    
   }
 
   .pagination__button {
@@ -78,12 +79,16 @@ const buttonClass = computed(() => {
     display: flex;
     justify-content: center;
     border-radius: 0;
-    padding: 0 .5rem;
+    padding: .5rem;
     width: 0;
     cursor: pointer;
     border: none;
+    /* background-color: aqua; */
+    width: 3rem;
+    
   }
 
-  .pagination__button{outline-color: var(--violet);}
+  .pagination__button{outline-color: var(--violet);
+  }
 }
 </style>

@@ -1,21 +1,33 @@
 <template>
   <div class="pagination pagination-mobile">
-    <pagination-listing :currentPage="currentPage" />
-    <pagination-buttons :currentPage="currentPage" />
+    <pagination-listing
+     :currentPage="currentPage"
+      :totalPages="totalPages" />
+    <pagination-buttons
+     :currentPage="currentPage" />
   </div>
   <div class="pagination pagination-desktop">
-    <pagination-buttons :currentPage="currentPage">
-      <pagination-listing :currentPage="currentPage" />
+    <pagination-buttons
+     :currentPage="currentPage">
+    <pagination-listing
+     :currentPage="currentPage" 
+     :totalPages="totalPages" />
     </pagination-buttons>
   </div>
 </template>
 
 <script setup>
+/*eslint-disable*/
+
 import PaginationButtons from '@/components/Pagination/PaginationButtons.vue';
 import PaginationListing from '@/components/Pagination/PaginationListing.vue';
-import { ref } from 'vue';
+import { computed } from 'vue';
+import { paginationStore } from "@/main";
 
-const currentPage = ref(2)
+
+const totalPages = computed(() => paginationStore.TOTAL_PAGES);
+const currentPage = computed(() => paginationStore.CURRENT_PAGE);
+
 
 </script>
 
@@ -26,6 +38,7 @@ const currentPage = ref(2)
   align-items: center;
   height: 11rem;
   justify-content: space-around;
+  
 }
 
 .pagination-desktop {
@@ -53,18 +66,17 @@ const currentPage = ref(2)
     padding-right: 4rem;
     box-shadow: .1rem .1rem .4rem #e2e0e0;
   }
-
+  
   .pagination-mobile {
     display: none;
   }
-
+  
   .pagination-desktop {
     display: flex;
-    /* top: 21rem; */
   }
 }
 
-@media only screen and (min-width: 1024px){
+@media only screen and (min-width: 1024px) {
   .pagination-desktop {
     top: 22rem;
   }

@@ -24,7 +24,8 @@ const isActiveClass = (value) => {
   isClassActive.value = value;
 }
 
-const isLoaded = computed(() => (!jobsStore.jobs.record || !jobsStore.jobs.record.length) ? true : false)
+const isLoaded = computed(() => (!jobsStore.jobs.record) ? true : false)
+
 </script>
 
 <style>
