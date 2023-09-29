@@ -15,16 +15,15 @@ import ThePagination from '@/components/Pagination/ThePagination.vue';
 import TheSpinner from '@/components/Shared/TheSpinner.vue';
 
 import { ref, computed } from "vue";
-import useJobsStore from "@/stores/jobs";
+import { jobStore } from "@/main";
 
-const jobsStore = useJobsStore()
 const isClassActive = ref(false);
 
 const isActiveClass = (value) => {
   isClassActive.value = value;
 }
 
-const isLoaded = computed(() => (!jobsStore.jobs.record) ? true : false)
+const isLoaded = computed(() => (!jobStore.jobs.record) ? true : false)
 
 </script>
 

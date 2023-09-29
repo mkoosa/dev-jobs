@@ -7,7 +7,7 @@
       </action-btn>
     </router-link>
     <slot></slot>
-    <router-link :to="{ name: 'Main', query: { page: nextPage } }">
+    <router-link :to="{ name: 'Main', query: { page: nextPage } }" data-testid="nextBtn">
       <action-btn v-if="nextPage" type="pagination__button" currentPage="currentPage">
         {{ next }}
         <font-awesome-icon class="arrow arrow-right" :icon="['fas', 'arrow-right']" />

@@ -16,6 +16,8 @@ const jobs = computed(() => {
 onMounted(async () => {
   await jobStore.FETCH_JOBS();
 })
+
+
 </script>
 <style>
 @media only screen and (min-width:768px) {
