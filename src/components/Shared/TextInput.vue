@@ -32,7 +32,7 @@ const handleInput = (event) => {
 }
 
 :focus {
-  border-bottom: .1rem solid var(--grey);
+  border-bottom: .05rem solid var(--grey);
   margin-left: 1rem;
   margin-top: 1rem;
 }

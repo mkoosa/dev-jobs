@@ -229,6 +229,7 @@ input[type="checkbox"] {
   transform: translateY(-0.075em);
   outline: none;
   margin-left: 1.5rem;
+  outline-color: var(--violet)
 }
 
 input[type="checkbox"]::before {
@@ -238,14 +239,17 @@ input[type="checkbox"]::before {
   transform: scale(0);
   transition: 120ms transform ease-in-out;
   box-shadow: inset 1em 1em var(--dark-grey);
+  outline-color: var(--violet)
 }
 
 input[type="checkbox"]:checked::before {
   transform: scale(1);
+  outline-color: var(--violet)
 }
 
 input[type="checkbox"]:focus {
-  border: .2rem solid var(--grey);
+  /* border: .2rem solid var(--grey); */
+  
 }
 
 
@@ -324,6 +328,7 @@ input[type="checkbox"]:focus {
   input[type="checkbox"] {
     width: 1.8em;
     height: 1.8em;
+    cursor: pointer;
   }
 
   input[type="checkbox"]::before {
