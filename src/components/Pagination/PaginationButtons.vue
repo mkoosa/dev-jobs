@@ -1,7 +1,7 @@
 <template>
   <div class="pagination__buttons mobile-view">
-    <action-btn v-if="previousPage" type="pagination__button" currentPage="currentPage">
-      <router-link :to="{ name: 'Main', query: { page: previousPage } }" data-testid="nextBtn">
+    <action-btn v-if="previousPage" type="pagination__button" currentPage="currentPage" role="pagination-buttons">
+      <router-link :to="{ name: 'Main', query: { page: previousPage } }">
         <font-awesome-icon class="arrow arrow-left" :icon="['fas', 'arrow-left']" />
         {{ previous }}
       </router-link>
@@ -10,11 +10,11 @@
     <action-btn v-if="nextPage" type="pagination__button" currentPage="currentPage" role="next-page">
       <router-link :to="{ name: 'Main', query: { page: nextPage } }">
         {{ next }}
-        <font-awesome-icon class="arrow arrow-right" :icon="['fas', 'arrow-right']" />
+        <font-awesome-icon class="arrow arrow-right" :icon="['fas', 'arrow-right']"/>
       </router-link>
     </action-btn>
   </div>
-  <div class="pagination__buttons desktop-view">
+  <div class="pagination__buttons desktop-view" role="pagination-buttons">
     <action-btn v-if="previousPage" type="pagination__button" currentPage="currentPage">
       <router-link :to="{ name: 'Main', query: { page: previousPage } }">
         <font-awesome-icon class="arrow arrow-left" :icon="['fas', 'arrow-left']" tabindex="1" />
@@ -32,15 +32,12 @@
 <script setup>
 import { ref, computed } from "vue"
 import ActionBtn from '@/components/Shared/ActionBtn.vue';
-import { paginationStore } from "@/main";
+import { paginationStore } from "@/main"
 
 const previousPage = computed(() => {
   return paginationStore.PREVIOUS_PAGE
 })
 const nextPage = computed(() => {
-
-  // if(!paginationStore.NEXT_PAGE) return true;
-  // if(paginationStore.NEXT_PAGE ===4) return false;
  return paginationStore.NEXT_PAGE
 })
 
@@ -49,7 +46,6 @@ defineProps({
     type: Number,
     required: true
   }
-  
 })
 
 const previous = ref('Previous');
@@ -60,7 +56,6 @@ const next = ref('Next');
 .desktop-view {
   display: none;
 }
-
 
 .arrow-left {
   margin-right: .7rem;
