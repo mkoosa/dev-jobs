@@ -23,8 +23,6 @@ import PaginationButtons from '@/components/Pagination/PaginationButtons.vue';
 import PaginationListing from '@/components/Pagination/PaginationListing.vue';
 import { computed } from 'vue';
 import { paginationStore } from "@/main";
-
-
 const totalPages = computed(() => paginationStore.TOTAL_PAGES);
 const currentPage = computed(() => paginationStore.CURRENT_PAGE);
 
