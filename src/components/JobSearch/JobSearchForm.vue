@@ -32,13 +32,12 @@ import FormElements from "@/components/Shared/FormElements.vue";
 import TheClose from "@/components//Shared/TheClose.vue";
 import { useRouter } from "vue-router"
 import { ref, computed } from "vue";
-import useBlur from "@//stores/blur";
+import {blurStore} from "@/main";
 
 const location = ref('');
 const tittle = ref('');
 const isActiveClass = ref(false);
 const router = useRouter();
-const blur = useBlur()
 
 const jobSearch = () => {
   router.push({
@@ -53,13 +52,13 @@ const removeBlurEffect = () => {
 
 const toggleClass = () => {
   removeBlurEffect();
-  blur.ACTIVATE_BLUR();
+  blurStore.ACTIVATE_BLUR();
   
 }
 
 const closeFlyingElements = () => {
   removeBlurEffect()
-  blur.ACTIVATE_BLUR();
+  blurStore.ACTIVATE_BLUR();
 };
 
 
