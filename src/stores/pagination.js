@@ -13,10 +13,9 @@ const usePaginationStore = defineStore('paginationStore', () => {
   );
 
   // const CURRENT_PAGE = computed(() => Number.parseInt(route.query.page) || 1);
-  const CURRENT_PAGE = computed(() => {
-    console.log(Number.parseInt(route.query.page) || 1);
-   return Number.parseInt(route.query.page) || 1
-  });
+  const CURRENT_PAGE = computed(() => Number.parseInt(route.query.page) || 1);
+  
+  
   
   const PREVIOUS_PAGE = computed(() => {
     const previousPage = CURRENT_PAGE.value - 1;
