@@ -1,6 +1,6 @@
 <template>
   <div class="jobs">
-    <job-listing v-for="job in jobs" :key="job.id" :job="job" />
+    <job-listing role="link" v-for="job in jobs" :key="job.id" :job="job" />
   </div>
 </template>
 
@@ -9,16 +9,12 @@ import JobListing from "@/components/JobResults/JobListing.vue"
 import { jobStore } from "@/main";
 import { computed, onMounted } from 'vue'
 
-const jobs = computed(() => {
-  return jobStore.jobs ? jobStore.ALL_JOBS : false
-})
-
+const jobs = computed(() => jobStore.ALL_JOBS)
 onMounted(async () => {
   await jobStore.FETCH_JOBS();
 })
-
-
 </script>
+
 <style>
 @media only screen and (min-width:768px) {
   .jobs {
