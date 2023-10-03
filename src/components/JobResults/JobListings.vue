@@ -10,7 +10,7 @@ import { jobStore } from "@/main";
 import { computed, onMounted } from 'vue'
 
 const jobs = computed(() => {
-  return jobStore.jobs.record ? jobStore.ALL_JOBS : false
+  return jobStore.jobs ? jobStore.ALL_JOBS : false
 })
 
 onMounted(async () => {

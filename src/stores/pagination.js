@@ -9,10 +9,14 @@ const usePaginationStore = defineStore('paginationStore', () => {
   const pagination = ref("");
   const route = useRoute();
   const TOTAL_PAGES = computed(() =>
-    jobStore.jobs.record ? Math.ceil(jobStore.jobs.record.length / 9) : 0
+    jobStore.jobs ? Math.ceil(jobStore.jobs.length / 9) : 0
   );
 
-  const CURRENT_PAGE = computed(() => Number.parseInt(route.query.page) || 1);
+  // const CURRENT_PAGE = computed(() => Number.parseInt(route.query.page) || 1);
+  const CURRENT_PAGE = computed(() => {
+    console.log(Number.parseInt(route.query.page) || 1);
+   return Number.parseInt(route.query.page) || 1
+  });
   
   const PREVIOUS_PAGE = computed(() => {
     const previousPage = CURRENT_PAGE.value - 1;
@@ -25,7 +29,6 @@ const usePaginationStore = defineStore('paginationStore', () => {
     const maxPage = TOTAL_PAGES.value; // 3
     return nextPage <= maxPage ? nextPage : 0;
   });
-
   return { pagination, TOTAL_PAGES, CURRENT_PAGE, PREVIOUS_PAGE, NEXT_PAGE };
 });
 

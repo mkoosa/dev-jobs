@@ -9,8 +9,14 @@ const useJobsStore = defineStore('jobStore', () => {
     jobs.value = await getJobs();
   };
 
-  const ALL_JOBS = computed( () => jobs.value.record.slice((paginationStore.CURRENT_PAGE-1)*9, 9*paginationStore.CURRENT_PAGE));
-  const TOTAL_JOB_PAGES = computed(() => jobs.value.record.length / 9);
+  const ALL_JOBS = computed(() =>
+    jobs.value.slice(
+      (paginationStore.CURRENT_PAGE - 1) * 9,
+      9 * paginationStore.CURRENT_PAGE
+    )
+  );
+  const TOTAL_JOB_PAGES = computed(() => jobs.value.length / 9);
+  console.log(jobs);
 
   return { jobs, FETCH_JOBS, ALL_JOBS, TOTAL_JOB_PAGES };
 });

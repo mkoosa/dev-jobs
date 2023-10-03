@@ -9,10 +9,9 @@ describe('getter', () => {
   });
 
   it('gets TOTAL_PAGES ', () => {
-    jobStore.jobs.record = Array(36).fill({});
+    jobStore.jobs = Array(15).fill({});
     const result = paginationStore.TOTAL_PAGES;
-    jobStore.jobs.record = Array(36).fill({});
-    expect(result).toBe(4);
+    expect(result).toBe(2);
   });
   it('gets current page', () => {
     const result = paginationStore.CURRENT_PAGE;
@@ -27,5 +26,4 @@ describe('getter', () => {
     expect(result).toBe(2);
   })
   
-
 });

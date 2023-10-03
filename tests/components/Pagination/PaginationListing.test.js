@@ -10,13 +10,6 @@ test('PaginationListing', () => {
   });
   expect(wrapper.props().currentPage).toBe(1);
   expect(wrapper.props().totalPages).toBe(3);
-  let previousPage = paginationStore.PREVIOUS_PAGE;
-  previousPage = true;
-  const setMargin = vi.fn();
-  setMargin(previousPage);
-  expect(setMargin).toHaveBeenCalledWith(true);
-
-  expect(wrapper.classes()).toContain('margin-left');
 });
 
 test('if does component contain class margin-left', () => {

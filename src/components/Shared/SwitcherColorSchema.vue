@@ -9,8 +9,8 @@
 </template>
 
 <script setup>
-import {colorSchemaStore} from '@/main';
-
+import useColorSchemaStore from '@/stores/colorSchema';
+const colorSchemaStore = useColorSchemaStore()
 const CHANGE_COLOR_SCHEMA =  colorSchemaStore.CHANGE_COLOR_SCHEMA;
 </script>
 

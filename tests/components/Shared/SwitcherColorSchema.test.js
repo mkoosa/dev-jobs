@@ -1,6 +1,8 @@
+
+
 import SwitcherColorSchema from '@/components/Shared/SwitcherColorSchema.vue';
 import { render, screen } from '@testing-library/vue';
-import { colorSchemaStore } from '@/main';
+import useColorSchemaStore from '@/stores/colorSchema';
 import { createTestingPinia } from '@pinia/testing';
 import userEvent from '@testing-library/user-event';
 
@@ -16,6 +18,7 @@ describe('SwitcherColorSchema', () => {
           plugins: [pinia]
         }
       });
+      const colorSchemaStore = useColorSchemaStore()
       const switcher = screen.getByRole('button');
       await userEvent.click(switcher);
       colorSchemaStore.CHANGE_COLOR_SCHEMA();

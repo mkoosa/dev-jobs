@@ -33,7 +33,7 @@ describe('actions', () => {
     });
     it('returns jobs', () => {
       const store = jobStore;
-      store.jobs.record = ['Job1', 'Job2'];
+      store.jobs = ['Job1', 'Job2'];
       const result = store.ALL_JOBS;
       expect(result).toEqual(['Job1', 'Job2']);
     });
