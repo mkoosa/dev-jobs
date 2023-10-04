@@ -60,6 +60,31 @@ const buttonClass = computed(() => {
   margin-right: 1rem;
 }
 
+.company-btn {
+  margin-top: 2rem;
+  padding: .8em 1.2em;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--violet);
+  background-color: var(--light-grey);
+  border: none;
+  border-radius: .5rem;
+}
+
+.apply-btn {
+  margin: 3rem 0;
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: .1rem;
+  background: var(--violet);
+  border: none;
+  outline: none;
+  color: var(--white);
+  padding: .8em 0;
+  border-radius: .5rem;
+}
+
 @media screen and (min-width: 768px) {
   .search-btn {
     margin-inline: initial;
@@ -71,7 +96,6 @@ const buttonClass = computed(() => {
 
   .pagination__button:nth-of-type(1) {
     margin-right: 0;
-    
   }
 
   .pagination__button {
@@ -83,12 +107,26 @@ const buttonClass = computed(() => {
     width: 0;
     cursor: pointer;
     border: none;
-    /* background-color: aqua; */
     width: 3rem;
-    
   }
 
-  .pagination__button{outline-color: var(--violet);
+  .pagination__button {
+    outline-color: var(--violet);
+  }
+
+  .company-btn{
+    margin: 0;
+  }
+
+  .apply-btn{
+    padding: 1.3rem 0;
+    height: 80%;
+    width: 14rem;
+  }
+
+  .apply-btn--desktop{
+    padding: 1.8rem 0;
+    margin-right: 4rem;    
   }
 }
 </style>
