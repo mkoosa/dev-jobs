@@ -1,5 +1,8 @@
 <template>
-  <RouterLink :to="pageLink" class="job">
+  <RouterLink
+   :to="pageLink" 
+   class="job"
+   >
     <div class="logo-wrapper" :style="{ backgroundColor: job.logoBackground }">
       <img class="logo" :src="srcPath(job.company)" alt="logo company">
     </div>
@@ -12,24 +15,17 @@
 
 <script setup>
 import { computed } from "vue"
+import srcPath from '@/api/srcPath' 
 
 const props = defineProps({
   job: {
     type: Object,
     required: true
   }
-
 })
 
-const srcPath = (company) => {
-  return `/src/assets/logos/${company.toLowerCase()}.svg`
-};
-
-
 const pageLink = computed(() => `/jobs/results/${props.job.id}`)
-
 </script>
-
 <style scoped>
 .job {
   display: flex;
@@ -44,7 +40,6 @@ const pageLink = computed(() => `/jobs/results/${props.job.id}`)
   box-shadow: .1rem .1rem .4rem #e2e0e0;
   border-radius: .5rem;
 }
-
 .job:last-of-type {
   margin-bottom: 2rem;
 }
@@ -60,7 +55,6 @@ const pageLink = computed(() => `/jobs/results/${props.job.id}`)
   height: 5rem;
   border-radius: 1.5rem;
 }
-
 
 .job__type,
 .job__company {
@@ -101,7 +95,6 @@ const pageLink = computed(() => `/jobs/results/${props.job.id}`)
     max-width: 65rem;
     cursor: pointer;
   }
-
   .logo-wrapper {
     left: 2.3rem;
   }
