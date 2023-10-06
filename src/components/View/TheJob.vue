@@ -22,6 +22,7 @@
         </div>
       </div>
       <div class="job__offer">
+        <the-close classIconElement="back" :action="backToJobResults"/>
         <div class="offer__header">
           <div class="company__details">
             <p class="offer__type">
@@ -31,7 +32,7 @@
             <p class="offer__location">{{ currentJob.location }}</p>
           </div>
           <action-btn
-           text="Aplly Now" 
+           text="Apply Now" 
            class="apply-btn" 
            @click="openCompanyPage(currentJob.website)"
            />
@@ -89,13 +90,15 @@
 
 import ActionBtn from "@/components/Shared/ActionBtn.vue";
 import TheSpinner from '@/components/Shared/TheSpinner.vue';
+import TheClose from "@/components/Shared/TheClose.vue"
 
-import { useRoute } from "vue-router"
+import { useRoute,useRouter } from "vue-router"
 import { computed, onMounted } from "vue";
 import { jobStore } from "@/main";
 import srcPath from '@/api/srcPath'
 
 const route = useRoute();
+const router = useRouter();
 const currentJob = computed(() => {
   let jobId = route.params.id
   let job = jobStore.jobs.filter((item) => item.id === +jobId) //pars to int
@@ -105,6 +108,8 @@ const currentJob = computed(() => {
 const openCompanyPage = (page) => {
   window.location.href = page
 }
+
+const backToJobResults = ()=> router.push({name:'Main'})
 
 onMounted(async () => {
   await jobStore.FETCH_JOBS();
@@ -159,6 +164,7 @@ onMounted(async () => {
   padding: 2rem;
   background: var(--white);
   border-radius: 0.5rem;
+  position: relative;
 }
 .offer__type {
   color: var(--dark-grey);

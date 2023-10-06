@@ -1,26 +1,59 @@
 <template>
-  <form role="form" aria-label="look for jobs" class="form" @submit.prevent="jobSearch">
-    <form-elements element="text" :classElement="['form__element', 'mobile-view']">
-      <font-awesome-icon role="switch" @click="toggleClass" class="form__icon icon-filter" :icon="['fas', 'filter']" />
-      <text-input v-model="tittle" placeholder="Filter by tittle ..." />
-      <action-btn type="insideIcon"><font-awesome-icon class="button-icon"
+  <form
+   role="form" 
+   aria-label="look for jobs" 
+   class="form" @submit.prevent="jobSearch"
+   >
+    <form-elements 
+    element="text" 
+    :classElement="['form__element', 'mobile-view']"
+    >
+    <font-awesome-icon
+     role="switch"
+    @click="toggleClass"
+     class="form__icon icon-filter"
+      :icon="['fas', 'filter']"
+       />
+    <text-input v-model="tittle" placeholder="Filter by tittle ..." />
+    <action-btn type="insideIcon"><font-awesome-icon class="button-icon"
           :icon="['fas', 'magnifying-glass']" /></action-btn>
     </form-elements>
-    <form-elements element="text" :classElement="['form__element', 'desktop-view']">
-      <font-awesome-icon class="form__icon" :icon="['fas', 'magnifying-glass']" />
-      <text-input v-model="tittle" placeholder="Filter by tittle ..." />
+    <form-elements
+     element="text" 
+     :classElement="['form__element', 'desktop-view']"
+     >
+    <font-awesome-icon class="form__icon" :icon="['fas', 'magnifying-glass']" />
+    <text-input
+     v-model="tittle" 
+     placeholder="Filter by tittle ..." />
     </form-elements>
-    <div data-testid="fl-elements" class="flying-elements" :class="addRemoveClass">
-      <form-elements element="text"
-        :classElement="['form__element', 'form__element--filter-by-location', 'flying-element']">
-        <the-close :action="closeFlyingElements" classIconElement="close_icon" />
-        <font-awesome-icon class="form__icon" :icon="['fas', 'location-dot']" />
-        <text-input v-model="location" placeholder="Filter by location ..." />
-      </form-elements>
-      <form-elements element="checkbox" classLabel="label" forText="full-time" :text="changeButtonContent"
-        :classElement="['form__element', 'form__element--job-type', 'flying-element']">
-        <action-btn role="button" type="search-btn" text="Search" />
-      </form-elements>
+    <div
+     data-testid="fl-elements" 
+     class="flying-elements" 
+     :class="addRemoveClass">
+    <form-elements
+     element="text"
+     :classElement="['form__element', 'form__element--filter-by-location', 'flying-element']">
+      <the-close
+       :action="closeFlyingElements" 
+       classIconElement="close_icon" />
+    <font-awesome-icon
+      class="form__icon" 
+      :icon="['fas', 'location-dot']" />
+    <text-input v-model="location" placeholder="Filter by location ..." />
+    </form-elements>
+    <form-elements
+      element="checkbox" 
+      classLabel="label" 
+      forText="full-time" 
+      :text="changeButtonContent"
+      :classElement="['form__element', 'form__element--job-type', 'flying-element']">
+    <action-btn
+     role="button" 
+     type="search-btn" 
+     text="Search" 
+     />
+    </form-elements>
     </div>
   </form>
 </template>
@@ -202,14 +235,6 @@ const changeButtonContent = computed(() => isActiveClass.value ? "Full Time Only
   display: none;
 }
 
-.close_icon {
-  font-size: 2.4rem;
-  position: absolute;
-  top: 1.5rem;
-  right: 3.5rem;
-  color: var(--violet);
-}
-
 .flying-elements.active {
   display: block;
 }
@@ -248,10 +273,7 @@ input[type="checkbox"]:checked::before {
 
 input[type="checkbox"]:focus {
   /* border: .2rem solid var(--grey); */
-  
 }
-
-
 
 @media only screen and (min-width:768px) {
   .mobile-view {
@@ -266,13 +288,11 @@ input[type="checkbox"]:focus {
     width: 90%;
     display: flex;
     max-width: 125rem;
-
   }
 
   .form::after {
     bottom: -3rem;
     height: 3rem;
-
   }
 
   .form__element {
@@ -293,10 +313,6 @@ input[type="checkbox"]:focus {
 
   .flying-elements.active {
     display: flex;
-  }
-
-  .close_icon {
-    display: none;
   }
 
   .flying-element:nth-of-type(2) {
