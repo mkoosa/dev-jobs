@@ -34,7 +34,6 @@ const buttonClass = computed(() => {
   border-radius: .5rem;
 }
 
-
 .search-btn {
   width: 100%;
   font-size: 1.7rem;
@@ -43,11 +42,9 @@ const buttonClass = computed(() => {
   height: 5.2rem;
   margin-inline: 1.5rem;
 }
-
 .pagination__button {
   color: var(--violet);
   background: transparent;
-  /* outline: none; */
   border: .2rem solid var(--violet);
   border-radius: 2.3rem;
   padding: .7em 0;
@@ -92,12 +89,14 @@ const buttonClass = computed(() => {
     height: auto;
     padding: .6em .8em;
     cursor: pointer;
+    transition: background-color .3s;
   }
-
+  .search-btn:hover{
+    background-color: var(--light-violet);
+  }
   .pagination__button:nth-of-type(1) {
     margin-right: 0;
   }
-
   .pagination__button {
     margin: 0;
     display: flex;
@@ -109,24 +108,37 @@ const buttonClass = computed(() => {
     border: none;
     width: 3rem;
   }
-
   .pagination__button {
     outline-color: var(--violet);
   }
-
   .company-btn{
     margin: 0;
+    cursor: pointer;
+    transition: all .3s;
   }
 
+  .company-btn:hover{
+    background: var(--middle-violet);
+    color: var(--white);
+
+  }
   .apply-btn{
     padding: 1.3rem 0;
     height: 80%;
     width: 14rem;
+    cursor: pointer;
+    transition: background-color .3s;
+  }
+  
+  .apply-btn:hover{
+    background-color: var(--light-violet);
+  }
+  .apply-btn--desktop{
+    padding: 1.65rem 0;
+    margin-right: 4rem;    
+  
   }
 
-  .apply-btn--desktop{
-    padding: 1.8rem 0;
-    margin-right: 4rem;    
-  }
+  
 }
 </style>

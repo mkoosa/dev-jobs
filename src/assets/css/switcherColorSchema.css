@@ -21,6 +21,10 @@
   transition: all 1s;
   border-radius: 1.5rem;
   cursor: pointer;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
 }
 
 .circle {
@@ -30,6 +34,10 @@
   border-radius: 1.5rem;
   background: var(--violet);
   transition: all .1s;
+}
+
+.toggle-container:hover .circle{
+  background-color: var(--light-violet);
 }
 
 .dark-theme .circle {
