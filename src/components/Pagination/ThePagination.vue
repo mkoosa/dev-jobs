@@ -7,6 +7,7 @@
      :currentPage="currentPage" />
   </div>
   <div class="pagination pagination-desktop">
+  <pagination-total paginationTotalClass="pagination__total"/>
     <pagination-buttons
      :currentPage="currentPage">
     <pagination-listing
@@ -21,6 +22,7 @@
 
 import PaginationButtons from '@/components/Pagination/PaginationButtons.vue';
 import PaginationListing from '@/components/Pagination/PaginationListing.vue';
+import PaginationTotal from '@/components/Pagination/PaginationTotal.vue';
 import { computed } from 'vue';
 import { paginationStore } from "@/main";
 const totalPages = computed(() => paginationStore.TOTAL_PAGES);
@@ -36,7 +38,6 @@ const currentPage = computed(() => paginationStore.CURRENT_PAGE);
   align-items: center;
   height: 11rem;
   justify-content: space-around;
-  
 }
 
 .pagination-desktop {
@@ -71,6 +72,7 @@ const currentPage = computed(() => paginationStore.CURRENT_PAGE);
   
   .pagination-desktop {
     display: flex;
+    justify-content: space-between;
   }
 }
 
