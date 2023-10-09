@@ -43,6 +43,7 @@
     <text-input v-model="location" placeholder="Filter by location ..." />
     </form-elements>
     <form-elements
+      @some-event="onlyFullTimeJob"
       element="checkbox" 
       classLabel="label" 
       forText="full-time" 
@@ -65,12 +66,13 @@ import FormElements from "@/components/Shared/FormElements.vue";
 import TheClose from "@/components//Shared/TheClose.vue";
 import { useRouter } from "vue-router"
 import { ref, computed } from "vue";
-import {blurStore} from "@/main";
+import {blurStore, userStore} from "@/main";
 
 const location = ref('');
 const tittle = ref('');
 const isActiveClass = ref(false);
 const router = useRouter();
+
 
 const jobSearch = () => {
   router.push({
@@ -78,23 +80,19 @@ const jobSearch = () => {
     query: { tittle: tittle.value, location: location.value }
   })
 };
-
 const removeBlurEffect = () => {
   isActiveClass.value = !isActiveClass.value
-}
-
+};
 const toggleClass = () => {
   removeBlurEffect();
   blurStore.ACTIVATE_BLUR();
-  
-}
-
+};
 const closeFlyingElements = () => {
   removeBlurEffect()
   blurStore.ACTIVATE_BLUR();
 };
 
-
+const onlyFullTimeJob = () => userStore.fullTime = !userStore.fullTime;
 const addRemoveClass = computed(() => isActiveClass.value ? "active" : "");
 const changeButtonContent = computed(() => isActiveClass.value ? "Full Time Only" : "Full Time")
 </script>

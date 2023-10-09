@@ -3,7 +3,10 @@
     <slot></slot>
   </div>
   <div v-if="element == 'checkbox'" :class="classElement">
-    <input type="checkbox" id="full-time" />
+    <input 
+     @click="emit('some-event')"
+     type="checkbox" 
+     id="full-time" />
     <label role="label" :class="classLabel" :for="forText">{{ text }}</label>
     <slot></slot>
   </div>
@@ -30,4 +33,6 @@ defineProps({
     required: true,
   },
 });
+
+const emit = defineEmits(['some-event'])
 </script>

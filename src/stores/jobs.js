@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import getJobs from '@/api/getJobs';
 import { ref, computed } from 'vue';
-import { paginationStore } from '@/main';
+import { paginationStore, userStore } from '@/main';
 
 const useJobsStore = defineStore('jobStore', () => {
   const jobs = ref([]);
@@ -9,15 +9,19 @@ const useJobsStore = defineStore('jobStore', () => {
     jobs.value = await getJobs();
   };
 
-  const ALL_JOBS = computed(() =>
-    jobs.value.slice(
+  const ALL_JOBS = computed(() => {
+    let score = jobs.value.slice(
       (paginationStore.CURRENT_PAGE - 1) * 9,
       9 * paginationStore.CURRENT_PAGE
-    )
-  );
-  const TOTAL_JOB_PAGES = computed(() => jobs.value.length / 9);
-  console.log(jobs);
+    );
+    if (userStore.FULL_TIME) {
+      return score.filter((item) => item.contract === 'Full Time');
+    } else {
+      return score;
+    }
+  });
 
+  const TOTAL_JOB_PAGES = computed(() => jobs.value.length / 9);
   return { jobs, FETCH_JOBS, ALL_JOBS, TOTAL_JOB_PAGES };
 });
 

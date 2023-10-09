@@ -7,6 +7,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import router from '@/router';
 import useJobsStore from '@/stores/jobs';
 import usePaginationStore from '@/stores/pagination';
+import useUserStore from '@/stores/user';
 import  useBlur from '@/stores/blur';
 
 library.add(fas);
@@ -16,6 +17,7 @@ app.use(pinia).component('font-awesome-icon', FontAwesomeIcon).use(router).mount
 
 const paginationStore = usePaginationStore();     
 const jobStore = useJobsStore();
+const userStore = useUserStore();
 const blurStore = useBlur();
 
-export { jobStore, paginationStore, blurStore };
+export { jobStore, paginationStore, blurStore, userStore };
