@@ -1,4 +1,5 @@
 <template>
+  <!-- <div v-if="currentJob"> -->
   <div v-if="currentJob">
     <div class="job">
       <div class="job__header">
@@ -10,7 +11,7 @@
           :src="srcPath(currentJob.company)" alt="logo company">
         </div>
         <div class="job__company">
-          <div>
+          <div class="about">
             <h1 class="company__name">{{ currentJob.company }}</h1>
             <p class="company__page">{{ currentJob.company.toLowerCase() + '.com' }}</p>
           </div>
@@ -97,9 +98,12 @@ import { computed, onMounted } from "vue";
 import { jobStore } from "@/main";
 import srcPath from '@/api/srcPath'
 
+
 const route = useRoute();
 const router = useRouter();
+console.log(route.params.id);
 const currentJob = computed(() => {
+  
   let jobId = route.params.id
   let job = jobStore.jobs.filter((item) => item.id === +jobId) //pars to int
   return job[0]
@@ -114,6 +118,8 @@ const backToJobResults = ()=> router.push({name:'Main'})
 onMounted(async () => {
   await jobStore.FETCH_JOBS();
 })
+
+
 </script>
 
 <style scoped>
@@ -294,6 +300,10 @@ span {
   }
   .company__name {
     font-size: 2.6rem;
+  }
+
+  .about{
+    text-align: left;
   }
   .offer__header {
     display: flex;
