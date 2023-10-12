@@ -8,8 +8,7 @@
 import JobListing from "@/components/JobResults/JobListing.vue"
 import { jobStore } from "@/main";
 import { computed, onMounted } from 'vue'
-
-const jobs = computed(() => jobStore.ALL_JOBS)
+const jobs = computed(() => jobStore.JOBS_ON_PAGE)
 onMounted(async () => {
   await jobStore.FETCH_JOBS();
 })

@@ -1,5 +1,5 @@
 import axios from 'axios';
-const URL = 'https://api.npoint.io/745a8514c0046f140ff7';
+const URL = 'https://api.npoint.io/b8cc8d83e11c57cba52f';
 
 const getJobs = async () => {
   try {

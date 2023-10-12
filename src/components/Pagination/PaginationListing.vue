@@ -1,7 +1,8 @@
 <template>
   <div class="pagination__listing" :class="setMargins()" currentPage="currentPage">
-    <span class="mobile-view">Page</span><span class="current-page">{{ currentPage }}</span><span
-      class="from">from</span><span class="total">{{ totalPages }}</span>
+    <span class="mobile-view">Page</span
+    ><span class="current-page">{{ currentPage }}</span
+    ><span class="from">from</span><span class="total">{{ totalPages }}</span>
   </div>
 </template>
 
@@ -15,22 +16,21 @@ const nextPage = computed(() => paginationStore.NEXT_PAGE);
 defineProps({
   currentPage: {
     type: Number,
-    required: true
+    required: true,
   },
   totalPages: {
     type: Number,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 
 const setMargins = () => {
   if (!previousPage.value) {
-    return "margin-left"
+    return "margin-left";
+  } else if (!nextPage.value) {
+    return "margin-right";
   }
-  else if (!nextPage.value) {
-    return "margin-right"
-  }
-}
+};
 </script>
 
 <style scoped>
@@ -40,16 +40,15 @@ const setMargins = () => {
 }
 
 .current-page {
-  margin: .3rem;
+  margin: 0.3rem;
   font-weight: 700;
 }
 
 span:last-of-type {
-  margin-left: .3rem;
+  margin-left: 0.3rem;
 }
 
-
-@media only screen and (min-width:768px) {
+@media only screen and (min-width: 768px) {
   .mobile-view {
     display: none;
   }
@@ -61,7 +60,7 @@ span:last-of-type {
   }
 
   .pagination__listing {
-    margin: 0 1rem 0 .5rem;
+    margin: 0 1rem 0 0.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,18 +70,18 @@ span:last-of-type {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: .1rem solid var(--grey);
+    border: 0.1rem solid var(--grey);
     width: 2.5rem;
     height: 3.5rem;
-    border-radius: .4rem;
-    margin-right: .6rem;
+    border-radius: 0.4rem;
+    margin-right: 0.6rem;
     background: var(--light-grey);
-    margin-left: .5rem;
+    margin-left: 0.5rem;
   }
 
   .from {
     font-size: 1.5rem;
-    margin-right: .3rem;
+    margin-right: 0.3rem;
   }
 
   .margin-right .total {

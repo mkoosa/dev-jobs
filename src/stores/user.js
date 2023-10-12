@@ -3,10 +3,16 @@ import { ref, computed } from 'vue';
 
 const useUserStore = defineStore('userStore', () => {
   const fullTime = ref(false);
+  const userOptions = ref("");
 
-  const FULL_TIME = computed(() => fullTime.value)   
+  const updateUserOptions = (options) => userOptions.value = options
 
-  return { fullTime, FULL_TIME  };
+  const FULL_TIME = computed(() => fullTime.value);
+  const USER_OPTIONS = computed(()=> userOptions.value)
+
+  
+
+  return { fullTime, FULL_TIME, updateUserOptions, userOptions, USER_OPTIONS  };
 });
 
 export default useUserStore;

@@ -101,7 +101,6 @@ import srcPath from '@/api/srcPath'
 
 const route = useRoute();
 const router = useRouter();
-console.log(route.params.id);
 const currentJob = computed(() => {
   
   let jobId = route.params.id

@@ -14,7 +14,7 @@ defineProps({
 
 import { computed } from "vue";
 import {jobStore} from "@/main"
-const totalJobsScore = computed(()=> jobStore.jobs.length) 
+const totalJobsScore = computed(()=> jobStore.FILTERED_JOBS_BY_RULES.length) 
 </script>
 
 <style scoped>
