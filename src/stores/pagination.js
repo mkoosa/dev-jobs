@@ -7,7 +7,8 @@ const usePaginationStore = defineStore('paginationStore', () => {
   const pagination = ref("");
   const route = useRoute();
 
-  const TOTAL_PAGES = computed(() => jobStore.jobs ? Math.ceil(jobStore.FILTERED_JOBS_BY_RULES.length / 9) : 0
+  // const TOTAL_PAGES = computed(() => jobStore.jobs ? Math.ceil(jobStore.FILTERED_JOBS_BY_RULES.length / 9) : 0
+  const TOTAL_PAGES = computed(() => jobStore.jobs ? jobStore.TOTAL_JOB_PAGES : 0
   );
   const CURRENT_PAGE = computed(() => {
     if (Number.parseInt(route.query.page) > TOTAL_PAGES.value) {

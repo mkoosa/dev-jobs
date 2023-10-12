@@ -1,5 +1,5 @@
 import { createPinia, setActivePinia } from 'pinia';
-import { jobStore } from '@/main';
+import { jobStore, userStore } from '@/main';
 import { beforeEach, describe, expect } from 'vitest';
 import axios from 'axios';
 vi.mock('axios');
@@ -26,16 +26,68 @@ describe('actions', () => {
       expect(store.jobs).toEqual(['Job1', 'Job2']);
     });
   });
+});
 
-  describe('getter', () => {
-    beforeEach(() => {
-      setActivePinia(createPinia());
-    });
-    it('returns jobs', () => {
+describe('getters', () => {
+  describe('FILTERED_JOBS_BY_RULES', () => {
+    const prepareJobs = () => {
+      const jobs = [
+        { location: 'Japan', position: 'Engineer', contract: 'Full Time' },
+        { location: 'Russia', position: 'Engineer', contract: 'Full Time' },
+        { location: 'United States', position: 'Director', contract: 'Part Time' }
+      ];
       const store = jobStore;
-      store.jobs = ['Job1', 'Job2'];
-      const result = store.ALL_JOBS;
-      expect(result).toEqual(['Job1', 'Job2']);
+      return {jobs, store}
+    };
+
+    it('returns jobs offers when user has used location and position ', () => {
+      const { jobs, store } = prepareJobs();
+      store.jobs = jobs
+      userStore.userOptions = ['Engineer', 'Japan'];
+      const result = store.FILTERED_JOBS_BY_RULES;
+      expect(result).toEqual([{ location: 'Japan', position: 'Engineer', contract: 'Full Time' }]);
+    });
+    it('returns jobs offers when user has used location', () => {
+      const { jobs, store } = prepareJobs();
+      store.jobs = jobs
+      userStore.userOptions = ['', 'japan'];
+      const result = store.FILTERED_JOBS_BY_RULES;
+      expect(result).toEqual([{ location: 'Japan', position: 'Engineer', contract: 'Full Time' }]);
+    });
+    it('returns jobs offers when user has used position', () => {
+      const { jobs, store } = prepareJobs();
+      store.jobs = jobs
+      userStore.userOptions = ['Engineer', ''];
+      const result = store.FILTERED_JOBS_BY_RULES;
+      expect(result).toEqual([
+        { location: 'Japan', position: 'Engineer', contract: 'Full Time' },
+        { location: 'Russia', position: 'Engineer', contract: 'Full Time' }
+      ]);
     });
   });
+  it('returns amount of job offers on page', () => {
+        const store = jobStore;
+        store.jobs = [
+          { location: 'Japan', position: 'Engineer', contract: 'Full Time' },
+          { location: 'Russia', position: 'Engineer', contract: 'Full Time' },
+          { location: 'United States', position: 'Director', contract: 'Part Time' }
+        ];
+  
+        const result = store.JOBS_ON_PAGE;
+        expect(result).toEqual([
+          { location: 'Japan', position: 'Engineer', contract: 'Full Time' },
+          { location: 'Russia', position: 'Engineer', contract: 'Full Time' }
+        ]);
+      });
+  
+    it('returns total amount of pages with job offers', () => {
+      const store = jobStore;
+      store.jobs = [
+        { location: 'Japan', position: 'Engineer', contract: 'Full Time' },
+        { location: 'Russia', position: 'Engineer', contract: 'Full Time' },
+        { location: 'United States', position: 'Director', contract: 'Part Time' }
+      ];
+      const result = store.TOTAL_JOB_PAGES;
+      expect(result).toBe(1);
+    });
 });

@@ -12,7 +12,7 @@ const useJobsStore = defineStore('jobStore', () => {
   const FILTERED_JOBS_BY_RULES = computed(() => {
     let arrayWithJobs = JSON.parse(JSON.stringify(jobs.value));
     let arrayWithOptions = JSON.parse(JSON.stringify(userStore.userOptions));
-
+  
     //looking for jobs location + position
     if (arrayWithOptions[0] && arrayWithOptions[1]) {
       arrayWithOptions.forEach((option) => {
@@ -20,8 +20,8 @@ const useJobsStore = defineStore('jobStore', () => {
           arrayWithJobs = arrayWithJobs.filter(
             (job) => job.location.toLowerCase().includes(option.toLowerCase()) || job.position.toLowerCase().includes(option.toLowerCase())
           );
-          return arrayWithJobs;
         }
+        return arrayWithJobs;
       });
     }
     //looking for jobs location or position
@@ -46,7 +46,7 @@ const useJobsStore = defineStore('jobStore', () => {
     }
   });
 
-  //amount of jobs offer on page
+  //amount of job offers on page
   const JOBS_ON_PAGE = computed(() =>
     FILTERED_JOBS_BY_RULES.value.slice(
       (paginationStore.CURRENT_PAGE - 1) * 9,
@@ -54,24 +54,14 @@ const useJobsStore = defineStore('jobStore', () => {
     )
   );
 
-  const JOBS_COUNTER = computed(() => {
-    let score = jobs.value;
-    if (userStore.FULL_TIME) {
-      return score.filter((item) => item.contract === 'Full Time');
-    } else {
-      return score;
-    }
-  });
-
   //total amount of job offers
   const TOTAL_JOB_PAGES = computed(() => {
-    return FILTERED_JOBS_BY_RULES.value.length / 9;
+    return Math.ceil(FILTERED_JOBS_BY_RULES.value.length / 9);
   });
   return {
     jobs,
     FETCH_JOBS,
     TOTAL_JOB_PAGES,
-    JOBS_COUNTER,
     JOBS_ON_PAGE,
     FILTERED_JOBS_BY_RULES
   };
