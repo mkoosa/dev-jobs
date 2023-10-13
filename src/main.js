@@ -8,12 +8,15 @@ import router from '@/router';
 import useJobsStore from '@/stores/jobs';
 import usePaginationStore from '@/stores/pagination';
 import useUserStore from '@/stores/user';
-import  useBlur from '@/stores/blur';
+import useBlur from '@/stores/blur';
+import {Button, Result} from 'ant-design-vue';
+
+
 
 library.add(fas);
 const app = createApp(App);
 export const pinia = createPinia();
-app.use(pinia).component('font-awesome-icon', FontAwesomeIcon).use(router).mount('#app')
+app.use(pinia).use(Button).use(Result).component('font-awesome-icon', FontAwesomeIcon).use(router).mount('#app')
 
 const paginationStore = usePaginationStore();     
 const jobStore = useJobsStore();

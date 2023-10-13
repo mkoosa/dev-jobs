@@ -46,6 +46,7 @@ const useJobsStore = defineStore('jobStore', () => {
     }
   });
 
+  
   //amount of job offers on page
   const JOBS_ON_PAGE = computed(() =>
     FILTERED_JOBS_BY_RULES.value.slice(

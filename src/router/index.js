@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 // components
 import Main from '@/components/View/TheMain.vue';
 import Job from '@/components/View/TheJob.vue';
+import NoResults from '@/components/View/NoResults.vue'
 
 const routes = [
   {
@@ -14,6 +15,11 @@ const routes = [
     path: '/jobs/results/:id',
     name: 'Job',
     component: Job
+  },
+  {
+    path: '/jobs/no-results',
+    name: 'NoResults',
+    component: NoResults
   }
 ];
 
