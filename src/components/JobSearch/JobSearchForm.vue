@@ -30,7 +30,7 @@ import TextInput from "@/components/Shared/TextInput.vue";
 import ActionBtn from "@/components/Shared/ActionBtn.vue";
 import FormElements from "@/components/Shared/FormElements.vue";
 import TheClose from "@/components//Shared/TheClose.vue";
-import { useRouter } from "vue-router"
+import { useRouter } from "vue-router";
 import { ref, computed } from "vue";
 import { blurStore, userStore, jobStore } from "@/main";
 
@@ -52,13 +52,9 @@ const jobSearch = () => {
 
 const noResultsPage = () => {
   if (!jobStore.FILTERED_JOBS_BY_RULES.length) {
-    console.log('no results');
     router.push({ name: 'NoResults' });
-    
-
   }
 }
-
 
 const removeBlurEffect = () => {
   isActiveClass.value = !isActiveClass.value

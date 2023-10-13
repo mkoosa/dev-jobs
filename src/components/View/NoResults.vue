@@ -8,11 +8,13 @@
 
 <script setup>
 import { useRouter } from 'vue-router';
-
+import { userStore } from "@/main";
 const router = useRouter();
 const backToMain = () => {
-  console.log('back');
-  router.push({ name: 'Main' })
+  router.push({ name: 'Main' });
+  
+  //simulate searching for jobs with empty values => got full array of jobs
+  userStore.updateUserOptions(['', '']);
 }
 
 </script>
