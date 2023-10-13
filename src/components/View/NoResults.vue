@@ -1,5 +1,5 @@
 <template>
-  <a-result status="warning" title="Upps, no results. Please try once again">
+  <a-result status="warning" title="Upps, no results.">
     <template #extra>
       <a-button @click="backToMain()" class="some" key="console">Go Back</a-button>
     </template>

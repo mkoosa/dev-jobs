@@ -81,6 +81,18 @@ const buttonClass = computed(() => {
   padding: .8em 0;
   border-radius: .5rem;
 }
+.cancel-btn{
+  background: var(--violet);
+  font-size: 1.3em;
+  padding: .5em 1em;
+  color: var(--white);
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+  border-radius: .3rem;
+  font-weight: 600;
+  letter-spacing: .05rem;
+}
 
 @media screen and (min-width: 768px) {
   .search-btn {
