@@ -1,0 +1,65 @@
+<template>
+  <div>
+    <a-modal v-model:open="open" title="This website uses cookies" @ok="handleOk">
+      <p class="modal-paragraph">We use cookies to personalize content and ads, to provide social media features and to analyse our traffic. We
+        also share information about your use of our site with our social media, advertising and analytics partners who
+        may combine it with other information that you’ve provided to them or that they’ve collected from your use of
+        their services.</p>
+    </a-modal>
+  </div>
+</template>
+<script setup>
+import useModalStore from '@/stores/modal';
+import { ref, watchEffect} from 'vue';
+
+const open = ref(false);
+const modalStore = useModalStore();
+
+const showModal = () => {
+  open.value = true;
+};
+const handleOk = e => {
+  console.log(e);
+  open.value = false;
+};
+
+watchEffect(() => {
+  if (modalStore.ACTIVE_MODAL) {
+    showModal()
+  }
+})
+</script>
+
+<style>
+.ant-btn-primary {
+  background: var(--violet);
+}
+
+.ant-btn-default {
+  border-color: var(--violet);
+}
+
+.ant-modal-close{
+  color: var(--violet);
+  display: none;
+}
+
+@media screen and (min-width:768px) {
+  .ant-modal {
+    width: min(145rem, 100%) !important;
+    bottom: 3rem;
+    align-self: flex-end
+  }
+
+  .ant-modal-content {
+    position: absolute;
+  }
+
+}
+
+@media screen and (min-width:1100px) {
+  .ant-modal-content {
+    top: 70vh;
+  }
+}
+</style>

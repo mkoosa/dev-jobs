@@ -1,17 +1,28 @@
 <template>
   <div class="wrapper" :class="addRemoveClass">
     <header-container />
-    <router-view/>
+    <router-view />
+    <the-modal />
   </div>
 </template>
 
 <script setup>
 import HeaderContainer from '@/components/Header/HeaderContainer.vue';
-import { computed} from "vue";
+import TheModal from '@/components/View/TheModal.vue'
+import { computed, onMounted } from "vue";
 import useBlur from '@/stores/blur';
+import { modalStore } from "@/main";
 
 const blur = useBlur()
-const addRemoveClass = computed(() => blur.BLUR ? 'blur' : '')
+const addRemoveClass = computed(() => blur.BLUR ? 'blur' : '');
+
+onMounted(() => {
+  setTimeout(() => {
+    console.log('object');
+    modalStore.activateModal()
+  }, 6000)
+})
+
 </script>
 
 <style>
