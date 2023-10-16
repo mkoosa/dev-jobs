@@ -11,15 +11,23 @@
 <script setup>
 import useModalStore from '@/stores/modal';
 import { ref, watchEffect} from 'vue';
+import Storage from '@/api/storage';
 
 const open = ref(false);
 const modalStore = useModalStore();
+const prepareStorage =() => new Storage('modal', true) 
 
 const showModal = () => {
   open.value = true;
 };
+
+const confirmStorage = () => {
+  const storage = prepareStorage();
+  storage.setStorage();
+
+}
 const handleOk = e => {
-  console.log(e);
+  if(e.target.innerText === "OK") confirmStorage();
   open.value = false;
 };
 
