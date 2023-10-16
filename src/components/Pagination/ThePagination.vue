@@ -63,7 +63,14 @@ const currentPage = computed(() => paginationStore.CURRENT_PAGE);
   .pagination {
     justify-content: end;
     padding-right: 4rem;
+    transition: all .2s;
     box-shadow: .1rem .1rem .4rem #e2e0e0;
+  }
+  
+  .dark-theme .pagination{
+    background: var(--midnight);
+    transition: all .2s;
+    box-shadow: .1rem .1rem 1rem #e2e0e0;
   }
   
   .pagination-mobile {

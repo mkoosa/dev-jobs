@@ -29,8 +29,13 @@ const handleInput = (event) => {
   font-size: 1.5rem;
   border: none;
   color: var(--grey);
+  transition: all .2s;
 }
 
+.dark-theme .form__input{
+  transition: all .2s;
+  background-color: var(--midnight);
+}
 :focus {
   border-bottom: .05rem solid var(--grey);
   margin-left: 1rem;

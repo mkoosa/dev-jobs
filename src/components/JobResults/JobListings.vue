@@ -36,6 +36,7 @@ onMounted(async () => {
 
 <style>
 .cancel-btn__wrapper {
+  width: 100%;
   text-align: center;
   margin: 2rem 0;
 }
@@ -48,6 +49,13 @@ onMounted(async () => {
     align-items: center;
     flex-wrap: wrap;
   }
+}
 
+@media only screen and (min-width:1100px) {
+  .jobs {
+    transition: all .2s;
+    justify-content: space-evenly;
+
+  }
 }
 </style>

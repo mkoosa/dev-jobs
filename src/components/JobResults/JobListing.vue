@@ -1,12 +1,12 @@
 <template>
-  <RouterLink
-   :to="pageLink" 
-   class="job"
-   >
+  <RouterLink :to="pageLink" class="job">
     <div class="logo-wrapper" :style="{ backgroundColor: job.logoBackground }">
-      <img class="logo" :src="srcPath(job.company)" alt="logo company">
+      <img class="logo" :src="srcPath(job.company)" alt="logo company" />
     </div>
-    <p class="job__type"><span>{{ job.postedAt }}</span><span class="dot">.</span><span>{{ job.contract }}</span></p>
+    <p class="job__type">
+      <span>{{ job.postedAt }}</span
+      ><span class="dot">.</span><span>{{ job.contract }}</span>
+    </p>
     <h2 class="job__position">{{ job.position }}</h2>
     <p class="job__company">{{ job.company }}</p>
     <p class="job__location">{{ job.location }}</p>
@@ -14,17 +14,17 @@
 </template>
 
 <script setup>
-import { computed } from "vue"
-import srcPath from '@/api/srcPath' 
+import { computed } from "vue";
+import srcPath from "@/api/srcPath";
 
 const props = defineProps({
   job: {
     type: Object,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 
-const pageLink = computed(() => `/jobs/results/${props.job.id}`)
+const pageLink = computed(() => `/jobs/results/${props.job.id}`);
 </script>
 <style scoped>
 .job {
@@ -37,8 +37,16 @@ const pageLink = computed(() => `/jobs/results/${props.job.id}`)
   position: relative;
   max-width: 45rem;
   max-height: 23.5rem;
-  box-shadow: .1rem .1rem .4rem #e2e0e0;
-  border-radius: .5rem;
+  box-shadow: 0.1rem 0.1rem 0.4rem #e2e0e0;
+  border-radius: 0.5rem;
+  transition: all .2s;
+}
+
+.dark-theme .job{
+  background: var(--very-dark-blue);
+  box-shadow: none;
+  transition: all .2s;
+
 }
 .job:last-of-type {
   margin-bottom: 2rem;
@@ -71,10 +79,17 @@ const pageLink = computed(() => `/jobs/results/${props.job.id}`)
 
 .job__position {
   margin-top: 1.2rem;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--dark);
   white-space: nowrap;
+  letter-spacing: .05rem;
+  transition: all .2s;
+}
+.dark-theme .job__position {
+  color: var(--white);
+  transition: all .2s;
+  
 }
 
 .job__company {
@@ -88,30 +103,34 @@ const pageLink = computed(() => `/jobs/results/${props.job.id}`)
   font-weight: 600;
 }
 
-@media only screen and (min-width:768px) {
+@media only screen and (min-width: 768px) {
   .job {
     flex-basis: 100%;
-    margin: 3rem .8rem;
-    max-width: 65rem;
-    cursor: pointer;
+    margin: 3rem 0.8rem;
+    max-width: 59rem;
   }
+  .job:hover{
+    box-shadow: 0.4rem 0.4rem 0.4rem #e2e0e0;
+  }
+  .dark-theme .job:hover{
+    box-shadow: 0.1rem 0.1rem 1rem #e2e0e0;
+    /* transition: all .2s; */
+  }
+
   .logo-wrapper {
     left: 2.3rem;
   }
 }
 
-@media only screen and (min-width:1024px) {
+@media only screen and (min-width: 1024px) {
   .job {
     flex-basis: 100%;
     max-width: 43rem;
+    cursor: pointer;
   }
 
   .job__position {
-    font-size: 2rem;
+    font-size: 1.9rem;
   }
 }
 </style>
-
-
-
-

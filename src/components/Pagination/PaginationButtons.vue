@@ -57,6 +57,10 @@ const next = ref('Next');
   display: none;
 }
 
+
+.dark-theme .arrow{
+  color: var(--violet);
+}
 .arrow-left {
   margin-right: .7rem;
 }

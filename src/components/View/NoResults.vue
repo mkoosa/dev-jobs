@@ -19,13 +19,8 @@ const backToMain = () => {
 
 </script>
 
-<style scoped>
-@import 'ant-design-vue/dist/reset.css';
-
-.some {
-  background: var(--violet);
-  outline: none;
-  border: none;
-  color: var(--white);
+<style>
+.dark-theme .ant-result-title{
+  color: var(--white) !important;
 }
 </style>

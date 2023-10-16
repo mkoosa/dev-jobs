@@ -1,24 +1,42 @@
 <template>
   <form role="form" aria-label="look for jobs" class="form" @submit.prevent="jobSearch">
     <form-elements element="text" :classElement="['form__element', 'mobile-view']">
-      <font-awesome-icon role="switch" @click="toggleClass" class="form__icon icon-filter" :icon="['fas', 'filter']" />
+      <font-awesome-icon
+        role="switch"
+        @click="toggleClass"
+        class="form__icon icon-filter"
+        :icon="['fas', 'filter']"
+      />
       <text-input v-model="tittle" placeholder="Filter by tittle ..." />
-      <action-btn type="insideIcon"><font-awesome-icon class="button-icon"
-          :icon="['fas', 'magnifying-glass']" /></action-btn>
+      <action-btn type="insideIcon"
+        ><font-awesome-icon class="button-icon" :icon="['fas', 'magnifying-glass']"
+      /></action-btn>
     </form-elements>
     <form-elements element="text" :classElement="['form__element', 'desktop-view']">
       <font-awesome-icon class="form__icon" :icon="['fas', 'magnifying-glass']" />
       <text-input v-model="tittle" placeholder="Filter by tittle ..." />
     </form-elements>
     <div data-testid="fl-elements" class="flying-elements" :class="addRemoveClass">
-      <form-elements element="text"
-        :classElement="['form__element', 'form__element--filter-by-location', 'flying-element']">
+      <form-elements
+        element="text"
+        :classElement="[
+          'form__element',
+          'form__element--filter-by-location',
+          'flying-element',
+        ]"
+      >
         <the-close :action="closeFlyingElements" classIconElement="close_icon" />
-        <font-awesome-icon class="form__icon" :icon="['fas', 'location-dot']" />
+        <font-awesome-icon class="form__icon form__icon-location" :icon="['fas', 'location-dot']" />
         <text-input v-model="location" placeholder="Filter by location ..." />
       </form-elements>
-      <form-elements @some-event="onlyFullTimeJob" element="checkbox" classLabel="label" forText="full-time"
-        :text="changeButtonContent" :classElement="['form__element', 'form__element--job-type', 'flying-element']">
+      <form-elements
+        @some-event="onlyFullTimeJob"
+        element="checkbox"
+        classLabel="label"
+        forText="full-time"
+        :text="changeButtonContent"
+        :classElement="['form__element', 'form__element--job-type', 'flying-element']"
+      >
         <action-btn role="button" type="search-btn" text="Search" />
       </form-elements>
     </div>
@@ -34,17 +52,17 @@ import { useRouter } from "vue-router";
 import { ref, computed } from "vue";
 import { blurStore, userStore, jobStore } from "@/main";
 
-const location = ref('');
-const tittle = ref('');
+const location = ref("");
+const tittle = ref("");
 const isActiveClass = ref(false);
 const router = useRouter();
 
 const jobSearch = () => {
   router.push({
     name: "Main",
-    query: { tittle: tittle.value, location: location.value }
-  })
-  const options = [tittle.value, location.value]
+    query: { tittle: tittle.value, location: location.value },
+  });
+  const options = [tittle.value, location.value];
   userStore.updateUserOptions(options);
   resetFormInputsValue();
   noResultsPage();
@@ -52,30 +70,32 @@ const jobSearch = () => {
 
 const noResultsPage = () => {
   if (!jobStore.FILTERED_JOBS_BY_RULES.length) {
-    router.push({ name: 'NoResults' });
+    router.push({ name: "NoResults" });
   }
-}
+};
 
 const removeBlurEffect = () => {
-  isActiveClass.value = !isActiveClass.value
+  isActiveClass.value = !isActiveClass.value;
 };
 const toggleClass = () => {
   removeBlurEffect();
   blurStore.ACTIVATE_BLUR();
 };
 const closeFlyingElements = () => {
-  removeBlurEffect()
+  removeBlurEffect();
   blurStore.ACTIVATE_BLUR();
 };
 
 const resetFormInputsValue = () => {
   location.value = "";
   tittle.value = "";
-}
+};
 
-const onlyFullTimeJob = () => userStore.fullTime = !userStore.fullTime;
-const addRemoveClass = computed(() => isActiveClass.value ? "active" : "");
-const changeButtonContent = computed(() => isActiveClass.value ? "Full Time Only" : "Full Time")
+const onlyFullTimeJob = () => (userStore.fullTime = !userStore.fullTime);
+const addRemoveClass = computed(() => (isActiveClass.value ? "active" : ""));
+const changeButtonContent = computed(() =>
+  isActiveClass.value ? "Full Time Only" : "Full Time"
+);
 </script>
 
 <style>
@@ -88,34 +108,45 @@ const changeButtonContent = computed(() => isActiveClass.value ? "Full Time Only
   width: 93%;
   max-width: 45rem;
   background-color: var(--white);
-  border-radius: .7rem;
+  border-radius: 0.7rem;
   z-index: 5;
+  transition: all 0.2s;
+}
+
+.dark-theme .form {
+  background-color: var(--midnight);
+  transition: all 0.2s;
 }
 
 .form::after {
+  background-color: var(--light-grey);
+  transition: all 0.2s;
+}
+.dark-theme .form::after {
   position: absolute;
   bottom: -2rem;
   left: 0;
-  content: '';
+  content: "";
   width: 100%;
   height: 2rem;
-  background-color: var(--light-grey);
+  background-color: var(--midnight);
   z-index: 100;
+  transition: all 0.2s;
 }
 
 .blur .form::after {
   display: none;
-
 }
 
 .form__element {
   max-width: inherit;
   padding-inline: 1.6rem;
-  width: 100%;
+  /* width: 100%; */
   height: 8rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
 }
 
 .form__element--job-type {
@@ -127,8 +158,6 @@ const changeButtonContent = computed(() => isActiveClass.value ? "Full Time Only
 .form__element--filter-by-location {
   position: relative;
   justify-content: start;
-  margin-inline: 1.5rem;
-  margin-inline: 1.5rem;
 }
 
 .form__element--filter-by-location::after {
@@ -137,9 +166,9 @@ const changeButtonContent = computed(() => isActiveClass.value ? "Full Time Only
   left: 0;
   content: "";
   background-color: var(--grey);
-  height: .1rem;
+  height: 0.1rem;
   width: 100%;
-  opacity: .3;
+  opacity: 0.3;
 }
 
 .desktop-view {
@@ -152,8 +181,8 @@ const changeButtonContent = computed(() => isActiveClass.value ? "Full Time Only
 
 .mobile-view::after {
   position: absolute;
-  content: '';
-  opacity: .4;
+  content: "";
+  opacity: 0.4;
   z-index: 4;
   background-color: var(--light-grey);
   top: 0;
@@ -181,9 +210,21 @@ const changeButtonContent = computed(() => isActiveClass.value ? "Full Time Only
 }
 
 .form__icon {
-  margin-top: .5rem;
-  font-size: 2.3rem;
+  margin-top: 0.5rem;
+  font-size: 2.8rem;
   color: var(--violet);
+  transition: all 0.2s;
+}
+
+.dark-theme .form__icon-location{
+  color: var(--violet) !important;
+  transition: all 0.2s;
+}
+
+
+.dark-theme .form__icon {
+  color: var(--white);
+  transition: all 0.2s;
 }
 
 .button-icon {
@@ -200,7 +241,11 @@ const changeButtonContent = computed(() => isActiveClass.value ? "Full Time Only
   font-size: 1.8rem;
   color: var(--very-dark-blue);
   font-weight: 800;
-  letter-spacing: .05rem;
+  letter-spacing: 0.05rem;
+}
+
+.dark-theme .label{
+  color: var(--white);
 }
 
 .flying-elements {
@@ -210,12 +255,23 @@ const changeButtonContent = computed(() => isActiveClass.value ? "Full Time Only
   transform: translate(-50%, -50%);
   position: fixed;
   background: var(--white);
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   height: 24rem;
   display: none;
+  transition: all 0.2s;
+}
+
+
+
+.dark-theme .flying-element,
+.dark-theme .flying-elements {
+  background: var(--midnight);
+  border-radius: 0.5rem;
+  transition: all .2s;
 }
 
 .flying-elements.active {
+  transition: all 0.2s;
   display: block;
 }
 
@@ -233,7 +289,7 @@ input[type="checkbox"] {
   transform: translateY(-0.075em);
   outline: none;
   margin-left: 1.5rem;
-  outline-color: var(--violet)
+  outline-color: var(--violet);
 }
 
 input[type="checkbox"]::before {
@@ -243,19 +299,19 @@ input[type="checkbox"]::before {
   transform: scale(0);
   transition: 120ms transform ease-in-out;
   box-shadow: inset 1em 1em var(--dark-grey);
-  outline-color: var(--violet)
+  outline-color: var(--violet);
 }
 
 input[type="checkbox"]:checked::before {
   transform: scale(1);
-  outline-color: var(--violet)
+  outline-color: var(--violet);
 }
 
 input[type="checkbox"]:focus {
   /* border: .2rem solid var(--grey); */
 }
 
-@media only screen and (min-width:768px) {
+@media only screen and (min-width: 768px) {
   .mobile-view {
     display: none;
   }
@@ -280,7 +336,10 @@ input[type="checkbox"]:focus {
     flex-basis: 33%;
     justify-content: center;
   }
-
+  .dark-theme .flying-element {
+    opacity: 1;
+    transition: all .2s;
+  }
   .flying-elements {
     all: initial;
     display: flex;
@@ -295,6 +354,10 @@ input[type="checkbox"]:focus {
     display: flex;
   }
 
+  .form__element--filter-by-location::after{
+    display: none;
+  }
+
   .flying-element:nth-of-type(2) {
     display: flex;
     justify-content: center;
@@ -306,13 +369,13 @@ input[type="checkbox"]:focus {
 
   .label {
     font-size: 1.6rem;
-    padding-inline: .7rem;
+    padding-inline: 0.7rem;
     font-weight: 700;
     width: max-content;
   }
 
   .form__element--filter-by-location {
-    border-inline: .1rem solid var(--dark-grey-lower-opacity);
+    border-inline: 0.1rem solid var(--dark-grey-lower-opacity);
     border-radius: 0;
   }
 
@@ -328,12 +391,12 @@ input[type="checkbox"]:focus {
 
   input[type="checkbox"]::before {
     content: "";
-    width: .7em;
-    height: .7em;
+    width: 0.7em;
+    height: 0.7em;
   }
 }
 
-@media only screen and (min-width:1024px) {
+@media only screen and (min-width: 1024px) {
   .form {
     top: 11rem;
   }
@@ -344,7 +407,7 @@ input[type="checkbox"]:focus {
   }
 }
 
-@media only screen and (min-width:1200px) {
+@media only screen and (min-width: 1200px) {
   .label {
     font-size: 1.8rem;
   }

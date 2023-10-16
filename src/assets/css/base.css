@@ -10,9 +10,34 @@
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 50.5%;
   font-family: 'Kumbh Sans', sans-serif;
 }
+
+@media only screen and (min-width: 520px) {
+  html {
+    font-size: 54.5%;
+  }
+}
+
+@media only screen and (min-width: 630px) {
+  html {
+    font-size: 57.5%;
+  }
+}
+
+@media only screen and (min-width: 730px) {
+  html {
+    font-size: 60%;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  html {
+    font-size: 62.5%;
+  }
+}
+
 
 * {
   font-family: 'Kumbh Sans', sans-serif;
@@ -61,9 +86,15 @@ h6 {
 
   --very-dark-blue: #19202d;
   --midnight: #121721;
+  --midnight-light: #1d2433;
   --dark: #03001C;
+  --dark-btn: #323042;
+  --dark-btn--hover: #53525e;
 }
 
+.router-link-exact-active{
+  color: var(--violet);
+}
 .wrapper {
   margin-inline: auto;
   max-width: 145rem;
@@ -83,19 +114,19 @@ p {
 /* dark mode  */
 body,
 .wrapper {
-  transition: all .2s;
-  -webkit-transition: all .2s;
-  -moz-transition: all .2s;
-  -ms-transition: all .2s;
-  -o-transition: all .2s;
+  transition: all .1s;
+  -webkit-transition: all .1s;
+  -moz-transition: all .1s;
+  -ms-transition: all .1s;
+  -o-transition: all .1s;
 }
 
 body.dark-theme,
 .dark-theme .wrapper {
-  background: var(--dark);
-  transition: all .2s;
-  -webkit-transition: all .2s;
-  -moz-transition: all .2s;
-  -ms-transition: all .2s;
-  -o-transition: all .2s;
+  background: var(--midnight);
+  transition: all .1s;
+  -webkit-transition: all .1s;
+  -moz-transition: all .1s;
+  -ms-transition: all .1s;
+  -o-transition: all .1s;
 }

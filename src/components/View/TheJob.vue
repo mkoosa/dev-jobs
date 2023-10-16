@@ -150,16 +150,29 @@ onMounted(async () => {
   z-index: 200;
   border-radius: 0.6rem;
   max-width: 45rem;
+  transition: all 0.2s;
+}
+
+.dark-theme .job__header{
+  background: var(--very-dark-blue);
+  transition: all 0.2s;
 }
 .job__company {
   padding: 3rem 0;
   padding-top: 0;
 }
+
 .company__name {
   padding-top: 5rem;
   font-size: 1.9rem;
   font-weight: 700;
   color: var(--very-dark-blue);
+  transition: all 0.2s;
+}
+
+.dark-theme .company__name{
+  color: var(--white);
+  transition: all 0.2s;
 }
 .company__page {
   color: var(--dark-grey);
@@ -170,6 +183,12 @@ onMounted(async () => {
   background: var(--white);
   border-radius: 0.5rem;
   position: relative;
+  transition: all 0.2s;
+}
+
+.dark-theme .job__offer{
+  background-color: var(--very-dark-blue);
+  transition: all 0.2s;
 }
 .offer__type {
   color: var(--dark-grey);
@@ -189,6 +208,12 @@ span {
   color: var(--very-dark-blue);
   font-size: 2rem;
   font-weight: 700;
+  transition: all 0.2s;
+}
+
+.dark-theme .offer__occupation{
+  color: var(--white);
+  transition: all 0.2s;
 }
 .offer__location {
   margin-bottom: 2rem;
@@ -205,6 +230,12 @@ span {
   color: var(--very-dark-blue);
   font-size: 2rem;
   font-weight: 700;
+  transition: all 0.2s;
+}
+
+.dark-theme .requirements__heading{
+  color: var(--white);
+  transition: all 0.2s;
 }
 .requirements__details {
   color: var(--middle-grey);
@@ -225,6 +256,12 @@ span {
   color: var(--very-dark-blue);
   font-size: 2rem;
   font-weight: 700;
+  transition: all 0.2s;
+}
+
+.dark-theme .task__heading{
+  color: var(--white);
+  transition: all 0.2s;
 }
 .task__details {
   color: var(--middle-grey);
@@ -255,7 +292,13 @@ span {
   display: none;
 }
 .footer__btn {
-  margin-inline: 2rem;
+  padding-inline: 2rem;
+  transition: all 0.2s;
+}
+
+.dark-theme .footer__btn{
+  background:var(--very-dark-blue) ;
+  transition: all 0.2s;
 }
 .spinner{
   margin-top: 20rem;
@@ -298,6 +341,8 @@ span {
     flex-basis: 70%;
   }
   .company__name {
+    margin-bottom: .2rem;
+    padding-top: .7rem;
     font-size: 2.6rem;
   }
 
@@ -319,6 +364,14 @@ span {
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .dark-theme .job__footer{
+    background: var(--very-dark-blue);
+    transition: all 0.2s;
+  }
+  .job__footer{
+    transition: all 0.2s;
   }
   .footer__details {
     flex-basis: 70%;
