@@ -8,7 +8,7 @@ const useModalStore = defineStore('modalStore', () => {
 
   const ACTIVE_MODAL = computed(() => modal.value);
 
-  return { ACTIVE_MODAL, activateModal };
+  return { ACTIVE_MODAL, activateModal, modal };
 });
 
 export default useModalStore;
