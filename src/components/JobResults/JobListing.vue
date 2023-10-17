@@ -97,11 +97,12 @@ const pageLink = computed(() => `/jobs/results/${props.job.id}`);
 }
 
 .job__location {
-  margin-top: 4rem;
+  margin-top: 2.5rem;
   color: var(--violet);
   font-size: 1.5rem;
   font-weight: 600;
 }
+
 
 @media only screen and (min-width: 768px) {
   .job {

@@ -1,13 +1,13 @@
 <template>
   <div class="pagination__buttons mobile-view">
-    <action-btn v-if="previousPage" type="pagination__button" currentPage="currentPage" role="pagination-buttons">
+    <action-btn v-if="previousPage" type="pagination__button" currentPage="currentPage" role="button">
       <router-link :to="{ name: 'Main', query: { page: previousPage } }">
         <font-awesome-icon class="arrow arrow-left" :icon="['fas', 'arrow-left']" />
         {{ previous }}
       </router-link>
     </action-btn>
     <slot></slot>
-    <action-btn v-if="nextPage" type="pagination__button" currentPage="currentPage" role="next-page">
+    <action-btn v-if="nextPage" type="pagination__button" currentPage="currentPage" role="button">
       <router-link :to="{ name: 'Main', query: { page: nextPage } }">
         {{ next }}
         <font-awesome-icon class="arrow arrow-right" :icon="['fas', 'arrow-right']" />
@@ -15,14 +15,14 @@
     </action-btn>
   </div>
   <div class="pagination__buttons desktop-view" role="pagination-buttons">
-    <router-link :to="{ name: 'Main', query: { page: previousPage } }">
+    <router-link :to="{ name: 'Main', query: { page: previousPage } }" role="button">
       <action-btn v-if="previousPage" type="pagination__button" currentPage="currentPage">
         <font-awesome-icon class="arrow arrow-left no-outline" :icon="['fas', 'arrow-left']" tabindex="1" />
       </action-btn>
     </router-link>
     <slot></slot>
     <router-link :to="{ name: 'Main', query: { page: nextPage } }">
-      <action-btn v-if="nextPage" type="pagination__button" currentPage="currentPage">
+      <action-btn v-if="nextPage" type="pagination__button" currentPage="currentPage" role="button">
         <font-awesome-icon class="arrow arrow-right no-outline" :icon="['fas', 'arrow-right']" tabindex="1" />
       </action-btn>
     </router-link>

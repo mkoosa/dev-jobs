@@ -80,10 +80,12 @@ const removeBlurEffect = () => {
 const toggleClass = () => {
   removeBlurEffect();
   blurStore.ACTIVATE_BLUR();
+  resetFormInputsValue();
 };
 const closeFlyingElements = () => {
   removeBlurEffect();
   blurStore.ACTIVATE_BLUR();
+  resetFormInputsValue();
 };
 
 const resetFormInputsValue = () => {

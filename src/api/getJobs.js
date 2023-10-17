@@ -1,5 +1,9 @@
+
 import axios from 'axios';
-const URL = 'https://api.npoint.io/b8cc8d83e11c57cba52f';
+const URL = 'https://api.npoint.io/80f8108301d81e46aeac';
+
+// in case URL is not available => fake backend can generate to many request
+const SECOND_URL = 'https://json.extendsclass.com/bin/c4b5a6b0bdbf';
 
 const getJobs = async () => {
   try {
@@ -8,6 +12,8 @@ const getJobs = async () => {
   } 
   catch (error) {
     console.log("Error message:",error);
+    const result = await axios.get(SECOND_URL); 
+      return result.data;  
   }
 };
 
