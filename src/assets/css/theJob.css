@@ -1,0 +1,286 @@
+.job {
+  padding-inline: 2rem;
+  line-height: 2.6rem;
+  position: relative;
+  z-index: 200;
+}
+
+.job__logo {
+  position: absolute;
+  top: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5.4rem;
+  height: 5rem;
+  border-radius: 1.5rem;
+}
+.job__header {
+  margin: 0 auto;
+  position: relative;
+  top: -2rem;
+  background: var(--white);
+  text-align: center;
+  z-index: 200;
+  border-radius: 0.6rem;
+  max-width: 45rem;
+  transition: all 0.2s;
+}
+
+.dark-theme .job__header{
+  background: var(--very-dark-blue);
+  transition: all 0.2s;
+}
+.job__company {
+  padding: 3rem 0;
+  padding-top: 0;
+}
+
+.company__name {
+  padding-top: 5rem;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--very-dark-blue);
+  transition: all 0.2s;
+}
+
+.dark-theme .company__name{
+  color: var(--white);
+  transition: all 0.2s;
+}
+.company__page {
+  color: var(--dark-grey);
+  margin-bottom: 0.5rem;
+}
+.job__offer {
+  padding: 2rem;
+  background: var(--white);
+  border-radius: 0.5rem;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.dark-theme .job__offer{
+  background-color: var(--very-dark-blue);
+  transition: all 0.2s;
+}
+.offer__type {
+  color: var(--dark-grey);
+}
+
+span {
+  font-weight: 400;
+}
+
+.dot {
+  margin-inline: 1rem;
+  font-size: 3rem;
+  font-weight: 600;
+}
+.offer__occupation {
+  padding: 0.5rem 0;
+  color: var(--very-dark-blue);
+  font-size: 2rem;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.dark-theme .offer__occupation{
+  color: var(--white);
+  transition: all 0.2s;
+}
+.offer__location {
+  margin-bottom: 2rem;
+  color: var(--violet);
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+.offer__details {
+  color: var(--middle-grey);
+}
+.requirements__heading {
+  margin: 2.5rem 0;
+  color: var(--very-dark-blue);
+  font-size: 2rem;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.dark-theme .requirements__heading{
+  color: var(--white);
+  transition: all 0.2s;
+}
+.requirements__details {
+  color: var(--middle-grey);
+}
+.requirements__list {
+  margin: 2rem 0 2rem 1.5rem;
+  color: var(--middle-grey);
+  list-style: initial;
+  font-size: 1.6rem;
+}
+.requirements__list-element {
+  padding-left: 3rem;
+  margin-bottom: 1rem;
+}
+.task__heading {
+  text-transform: capitalize;
+  margin: 2.5rem 0;
+  color: var(--very-dark-blue);
+  font-size: 2rem;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.dark-theme .task__heading{
+  color: var(--white);
+  transition: all 0.2s;
+}
+.task__details {
+  color: var(--middle-grey);
+}
+.task__list {
+  margin: 2rem 0 2rem 1.5rem;
+  color: var(--middle-grey);
+  font-size: 1.6rem;
+}
+.task__list-element {
+  display: block;
+  margin-bottom: 0.5em;
+  margin-left: 2em;
+}
+.task__list-element::before {
+  display: inline-block;
+  content: ">";
+  width: 2em;
+  margin-left: -2em;
+  color: var(--violet);
+  font-weight: 700;
+}
+.job__footer {
+  margin-top: 5rem;
+  background: var(--white);
+}
+.job__footer--desktop {
+  display: none;
+}
+.footer__btn {
+  padding-inline: 2rem;
+  transition: all 0.2s;
+}
+
+.dark-theme .footer__btn{
+  background:var(--very-dark-blue) ;
+  transition: all 0.2s;
+}
+.spinner{
+  margin-top: 20rem;
+}
+
+@media screen and (min-width: 768px) {
+  .job {
+    padding-inline: 4rem;
+  }
+  .job__offer {
+    padding: 4rem;
+  }
+  .job__header {
+    width: initial;
+    display: flex;
+    top: -3rem;
+    height: 14rem;
+    border-radius: 0.5rem;
+    max-width: initial;
+  }
+  .job__logo {
+    position: static;
+    transform: initial;
+    width: 15rem;
+    margin: 0;
+    border-radius: 0;
+    padding: 0;
+    height: 100%;
+    border-radius: 0.5rem 0 0 0.5rem;
+  }
+  .job__company {
+    width: 100%;
+    padding: 0;
+    padding-inline: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .company__details {
+    flex-basis: 70%;
+  }
+  .company__name {
+    margin-bottom: .2rem;
+    padding-top: .7rem;
+    font-size: 2.6rem;
+  }
+
+  .about{
+    text-align: left;
+  }
+  .offer__header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .offer__occupation {
+    font-size: 2.7rem;
+    padding: 1.5rem 0;
+  }
+  .job__footer--mobile {
+    display: none;
+  }
+  .job__footer--desktop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .dark-theme .job__footer{
+    background: var(--very-dark-blue);
+    transition: all 0.2s;
+  }
+  .job__footer{
+    transition: all 0.2s;
+  }
+  .footer__details {
+    flex-basis: 70%;
+    padding-left: 4rem;
+  }
+  .footer__occupation {
+    color: var(--very-dark-blue);
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  .footer__btn {
+    margin-inline: 4rem;
+    flex-grow: 1;
+  }
+  .designer {
+    color: var(--middle-grey);
+    padding: .5rem 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .job__header {
+    top: -6rem;
+  }
+  .job__offer {
+    margin: 0 auto;
+    max-width: 90rem;
+  }
+  .job__footer {
+    margin: 0 auto;
+  }
+  .job__footer--desktop {
+    margin: 0 auto;
+    max-width: 90rem;
+  }
+}

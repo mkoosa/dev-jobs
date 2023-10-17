@@ -11,30 +11,11 @@ import { useRouter } from 'vue-router';
 import { userStore, blurStore } from "@/main";
 const router = useRouter();
 const backToMain = () => {
-  
+
   router.push({ name: 'Main' });
-  blurStore.ACTIVATE_BLUR()
-  
+  console.log('blur out');
+  if (blurStore.BLUR) blurStore.ACTIVATE_BLUR();
   //simulate searching for jobs with empty values => got full array of jobs
   userStore.updateUserOptions(['', '']);
 }
-
 </script>
-
-<style>
-.ant-result{
-  left: 50%;
-  transform: translateX(-50%);
-  position: absolute;
-  z-index: 200;
-}
-
-.ant-btn-default{
-  background:var(--violet);
-  color: var(--white);
-}
-
-.dark-theme .ant-result-title{
-  color: var(--white) !important;
-}
-</style>

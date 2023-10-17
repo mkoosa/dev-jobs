@@ -1,0 +1,15 @@
+.ant-result {
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  z-index: 200;
+}
+
+.ant-btn-default {
+  background: var(--violet);
+  color: var(--white);
+}
+
+.dark-theme .ant-result-title {
+  color: var(--white) !important;
+}

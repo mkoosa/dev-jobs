@@ -23,20 +23,5 @@ const isActiveClass = (value) => {
   isClassActive.value = value;
 }
 
-const isLoaded = computed(() => (!jobStore.jobs) ? true : false)
-
+const isLoaded = computed(() => (!jobStore.jobs.length) ? true : false)
 </script>
-
-<style>
-.main {
-  padding: 10rem 2rem 3rem 2rem;
-  width: 100%;
-  position: relative;
-}
-
-@media only screen and (min-width:768px) {
-  .main {
-    padding-top: 9rem;
-  }
-}
-</style>

@@ -22,29 +22,5 @@ const handleInput = (event) => {
 </script>
 
 <style scoped>
-.form__input {
-  width: 55%;
-  padding: .5em 1em 1em;
-  outline: none;
-  font-size: 1.5rem;
-  border: none;
-  color: var(--grey);
-  transition: all .2s;
-}
-
-.dark-theme .form__input{
-  transition: all .2s;
-  background-color: var(--midnight);
-}
-:focus {
-  border-bottom: .05rem solid var(--grey);
-  margin-left: 1rem;
-  margin-top: 1rem;
-}
-
-@media screen and (min-width:768px) {
-  .form__input {
-    margin-left: 1.5rem;
-  }
-}
+@import '@/assets/css/textInput.css';
 </style>

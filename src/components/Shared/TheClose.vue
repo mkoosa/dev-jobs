@@ -15,37 +15,4 @@ defineProps({
     required: true
   }
 })
-
 </script>
-
-<style>
-.back{
-  font-size: 2.2rem;
-  color: var(--violet);
-  position: absolute;
-  right: 3rem;
-}
-.close_icon {
-  font-size: 2.4rem;
-  position: absolute;
-  top: 1.5rem;
-  right: 3.5rem;
-  color: var(--violet);
-}
-
-
-@media screen and (min-width: 768px){
-  .back{
-    font-size: 2.3rem;
-    color: var(--violet);
-    position: absolute;
-    right: 3rem;
-    top: 1.5rem;
-    cursor: pointer;
-  }
-  .close_icon {
-    display: none;
-  }
-
-}
-</style>

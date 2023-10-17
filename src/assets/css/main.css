@@ -1,5 +1,21 @@
-@import './base.css';
-@import './header.css';
-@import './switcherColorSchema.css';
+@import '@/assets/css/base.css';
+@import '@/assets/css/header.css';
+@import '@/assets/css/switcherColorSchema.css';
+@import '@/assets/css/switcherColorSchema.css';
+@import '@/assets/css/jobListings.css';
+@import '@/assets/css/jobSearchForm.css';
+@import '@/assets/css/jobSearchForm.css';
+@import '@/assets/css/paginationTotal.css';
+@import '@/assets/css/thePagination.css';
+@import '@/assets/css/theClose.css';
+@import '@/assets/css/theSpinner.css';
+@import '@/assets/css/noResults.css';
+@import '@/assets/css/theHome.css';
+@import '@/assets/css/theMain.css';
+@import '@/assets/css/theModal.css';
+
+
+
+
 
 

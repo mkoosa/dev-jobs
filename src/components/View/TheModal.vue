@@ -37,37 +37,3 @@ watchEffect(() => {
   }
 })
 </script>
-
-<style>
-.ant-btn-primary {
-  background: var(--violet);
-}
-
-.ant-btn-default {
-  border-color: var(--violet);
-}
-
-.ant-modal-close{
-  color: var(--violet);
-  display: none;
-}
-
-@media screen and (min-width:768px) {
-  .ant-modal {
-    width: min(145rem, 100%) !important;
-    bottom: 3rem;
-    align-self: flex-end
-  }
-
-  .ant-modal-content {
-    position: absolute;
-  }
-
-}
-
-@media screen and (min-width:1100px) {
-  .ant-modal-content {
-    top: 70vh;
-  }
-}
-</style>

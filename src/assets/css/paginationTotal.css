@@ -1,0 +1,15 @@
+.pagination__total{
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+.pagination__total{
+  display: inline-block;
+  color: var(--dark-grey);
+  padding-left: 4rem;
+}
+.pagination__total >span{
+  font-weight: 600;
+  margin-left: .5rem;
+}
+}

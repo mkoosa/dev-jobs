@@ -53,49 +53,5 @@ const next = ref('Next');
 </script>
 
 <style scoped>
-.desktop-view {
-  display: none;
-}
-
-
-.dark-theme .arrow{
-  color: var(--violet);
-}
-.arrow-left {
-  margin-right: .7rem;
-}
-
-.arrow-right {
-  margin-left: .7rem;
-}
-
-@media only screen and (min-width:768px) {
-  .pagination__buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .arrow-left {
-    margin-right: -.5rem;
-    margin-left: 1rem;
-  }
-
-  .arrow-right {
-    margin-left: 0rem;
-    margin-right: 1.4rem;
-  }
-
-  .desktop-view {
-    display: flex;
-  }
-
-  .mobile-view {
-    display: none;
-  }
-
-  .no-outline{
-    outline: none;
-  }
-}
+@import '@/assets/css/paginationButtons.css'
 </style>
