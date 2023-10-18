@@ -28,8 +28,6 @@ coverage
 *.sw?
 playground.test.js
 playground.js
-*.md
-README.md
 *.sketch
 *.xd
 *.fig
