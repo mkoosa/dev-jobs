@@ -32,7 +32,4 @@ playground.js
 *.xd
 *.fig
 .DS_Store
-desktop/
-mobile/
-tablet/
 *.txt
