@@ -113,7 +113,7 @@ const openCompanyPage = (page) => {
 const backToJobResults = ()=> router.push({name:'Main'})
 
 onMounted(async () => {
-  await jobStore.FETCH_JOBS();
+  // await jobStore.FETCH_JOBS();
 })
 
 
