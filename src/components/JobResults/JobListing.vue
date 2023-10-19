@@ -1,7 +1,7 @@
 <template>
   <RouterLink :to="pageLink" class="job">
     <div class="logo-wrapper" :style="{ backgroundColor: job.logoBackground }">
-      <img class="logo" :src="srcPath(job.company)" alt="logo company" />
+      <img class="logo" :src="job.logo" alt="logo company" />
     </div>
     <p class="job__type">
       <span>{{ job.postedAt }}</span><span class="dot">.</span><span>{{ job.contract }}</span>
@@ -14,7 +14,6 @@
 
 <script setup>
 import { computed } from "vue";
-import srcPath from "@/api/srcPath";
 
 const props = defineProps({
   job: {

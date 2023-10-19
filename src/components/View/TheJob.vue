@@ -7,7 +7,7 @@
          >
         <img
          class="logo"
-          :src="srcPath(currentJob.company)" alt="logo company">
+          :src="currentJob.logo" alt="logo company">
         </div>
         <div class="job__company">
           <div class="about">
@@ -95,7 +95,6 @@ import TheClose from "@/components/Shared/TheClose.vue"
 import { useRoute,useRouter } from "vue-router"
 import { computed, onMounted } from "vue";
 import { jobStore } from "@/main";
-import srcPath from '@/api/srcPath'
 
 
 const route = useRoute();
