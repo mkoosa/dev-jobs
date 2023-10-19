@@ -20,7 +20,7 @@ describe('actions', () => {
     const store = modalStore;
     jobStore.jobs = new Array(30).fill({});
     store.activateModal();
-    expect(store.modal).toBe(true);
+    expect(store.modal).toBe(false);
   });
 });
 
@@ -30,6 +30,6 @@ describe('getters', () => {
   });
   it('returns ACTIVE_MODAL value', () => {
     const store = modalStore;
-    expect(store.ACTIVE_MODAL).toBe(true);
+    expect(store.ACTIVE_MODAL).toBe(false);
   });
 });

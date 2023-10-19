@@ -12,7 +12,7 @@ describe('getJobs', () => {
   it('fetches jobs from data base if something has gone wrong', async () => {
     try {
       axios.get.mockResolvedValue({ data: ['Job1', 'Job2'] });
-      expect(axios.get).toHaveBeenCalledWith('https://api.npoint.io/80f8108301d81e46aeac');
+      expect(axios.get).toHaveBeenCalledWith('https://api.npoint.io/953e27d99ed209ee372b');
     } catch (error) {
       expect(error).toBeInstanceOf(Error);
       axios.get.mockResolvedValue({ data: ['Job1', 'Job2'] });

@@ -28,8 +28,7 @@ onMounted(() => {
       modalStore.activateModal();
       storage.removeStorage()
     }
-
-  }, 6000)
+  }, 1500)
 })
 
 </script>
