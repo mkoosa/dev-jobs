@@ -34,6 +34,10 @@
   border-radius: 1.5rem;
   background: var(--violet);
   transition: all .1s;
+  -webkit-transition: all .1s;
+  -moz-transition: all .1s;
+  -ms-transition: all .1s;
+  -o-transition: all .1s;
 }
 
 .toggle-container:hover .circle{
@@ -43,5 +47,8 @@
 .dark-theme .circle {
   transform: translateX(2.5rem);
   transition: all .1s;
-
+  -webkit-transition: all .1s;
+  -moz-transition: all .1s;
+  -ms-transition: all .1s;
+  -o-transition: all .1s;
 }

@@ -6,11 +6,23 @@
   border: none;
   color: var(--grey);
   transition: all .2s;
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -ms-transition: all .2s;
+  -o-transition: all .2s;
+}
+
+.form__input::placeholder{
+  font-size: 16px;
 }
 
 .dark-theme .form__input{
   transition: all .2s;
   background-color: var(--midnight);
+  -webkit-transition: all .2s;
+  -moz-transition: all .2s;
+  -ms-transition: all .2s;
+  -o-transition: all .2s;
 }
 :focus {
   border-bottom: .05rem solid var(--grey);

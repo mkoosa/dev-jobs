@@ -16,7 +16,16 @@
   width: 5.4rem;
   height: 5rem;
   border-radius: 1.5rem;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -webkit-border-radius: 1.5rem;
+  -moz-border-radius: 1.5rem;
+  -ms-border-radius: 1.5rem;
+  -o-border-radius: 1.5rem;
 }
+
 .job__header {
   margin: 0 auto;
   position: relative;
@@ -27,12 +36,25 @@
   border-radius: 0.6rem;
   max-width: 45rem;
   transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  -webkit-border-radius: 0.6rem;
+  -moz-border-radius: 0.6rem;
+  -ms-border-radius: 0.6rem;
+  -o-border-radius: 0.6rem;
 }
 
-.dark-theme .job__header{
+.dark-theme .job__header {
   background: var(--very-dark-blue);
   transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
 }
+
 .job__company {
   padding: 3rem 0;
   padding-top: 0;
@@ -44,28 +66,51 @@
   font-weight: 700;
   color: var(--very-dark-blue);
   transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
 }
 
-.dark-theme .company__name{
+.dark-theme .company__name {
   color: var(--white);
   transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
 }
+
 .company__page {
   color: var(--dark-grey);
   margin-bottom: 0.5rem;
 }
+
 .job__offer {
   padding: 2rem;
   background: var(--white);
   border-radius: 0.5rem;
   position: relative;
   transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
 }
 
-.dark-theme .job__offer{
+.dark-theme .job__offer {
   background-color: var(--very-dark-blue);
   transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
 }
+
 .offer__type {
   color: var(--dark-grey);
 }
@@ -79,18 +124,28 @@ span {
   font-size: 3rem;
   font-weight: 600;
 }
+
 .offer__occupation {
   padding: 0.5rem 0;
   color: var(--very-dark-blue);
   font-size: 2rem;
   font-weight: 700;
   transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
 }
 
-.dark-theme .offer__occupation{
+.dark-theme .offer__occupation {
   color: var(--white);
   transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
 }
+
 .offer__location {
   margin-bottom: 2rem;
   color: var(--violet);
@@ -98,34 +153,48 @@ span {
   font-weight: 700;
   font-size: 1.4rem;
 }
+
 .offer__details {
   color: var(--middle-grey);
 }
+
 .requirements__heading {
   margin: 2.5rem 0;
   color: var(--very-dark-blue);
   font-size: 2rem;
   font-weight: 700;
   transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
 }
 
-.dark-theme .requirements__heading{
+.dark-theme .requirements__heading {
   color: var(--white);
   transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
 }
+
 .requirements__details {
   color: var(--middle-grey);
 }
+
 .requirements__list {
   margin: 2rem 0 2rem 1.5rem;
   color: var(--middle-grey);
   list-style: initial;
   font-size: 1.6rem;
 }
+
 .requirements__list-element {
   padding-left: 3rem;
   margin-bottom: 1rem;
 }
+
 .task__heading {
   text-transform: capitalize;
   margin: 2.5rem 0;
@@ -133,25 +202,37 @@ span {
   font-size: 2rem;
   font-weight: 700;
   transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
 }
 
-.dark-theme .task__heading{
+.dark-theme .task__heading {
   color: var(--white);
   transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
 }
+
 .task__details {
   color: var(--middle-grey);
 }
+
 .task__list {
   margin: 2rem 0 2rem 1.5rem;
   color: var(--middle-grey);
   font-size: 1.6rem;
 }
+
 .task__list-element {
   display: block;
   margin-bottom: 0.5em;
   margin-left: 2em;
 }
+
 .task__list-element::before {
   display: inline-block;
   content: ">";
@@ -160,23 +241,35 @@ span {
   color: var(--violet);
   font-weight: 700;
 }
+
 .job__footer {
   margin-top: 5rem;
   background: var(--white);
 }
+
 .job__footer--desktop {
   display: none;
 }
+
 .footer__btn {
   padding-inline: 2rem;
   transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
 }
 
-.dark-theme .footer__btn{
-  background:var(--very-dark-blue) ;
+.dark-theme .footer__btn {
+  background: var(--very-dark-blue);
   transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
 }
-.spinner{
+
+.spinner {
   margin-top: 20rem;
 }
 
@@ -184,9 +277,11 @@ span {
   .job {
     padding-inline: 4rem;
   }
+
   .job__offer {
     padding: 4rem;
   }
+
   .job__header {
     width: initial;
     display: flex;
@@ -194,7 +289,12 @@ span {
     height: 14rem;
     border-radius: 0.5rem;
     max-width: initial;
-  }
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+}
+
   .job__logo {
     position: static;
     transform: initial;
@@ -204,7 +304,12 @@ span {
     padding: 0;
     height: 100%;
     border-radius: 0.5rem 0 0 0.5rem;
-  }
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+}
+
   .job__company {
     width: 100%;
     padding: 0;
@@ -213,55 +318,88 @@ span {
     justify-content: space-between;
     align-items: center;
   }
+
   .company__details {
     flex-basis: 70%;
   }
+
   .company__name {
     margin-bottom: .2rem;
     padding-top: .7rem;
     font-size: 2.6rem;
   }
 
-  .about{
+  .about {
     text-align: left;
   }
+
   .offer__header {
     display: flex;
     justify-content: space-between;
   }
+
   .offer__occupation {
     font-size: 2.7rem;
     padding: 1.5rem 0;
   }
+
   .job__footer--mobile {
     display: none;
   }
+
   .job__footer--desktop {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
-  .dark-theme .job__footer{
+  .dark-theme .job__footer {
     background: var(--very-dark-blue);
     transition: all 0.2s;
-  }
-  .job__footer{
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+}
+
+  .job__footer {
     transition: all 0.2s;
-  }
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+}
+
   .footer__details {
     flex-basis: 70%;
     padding-left: 4rem;
   }
+
   .footer__occupation {
     color: var(--very-dark-blue);
     font-size: 2rem;
     font-weight: 700;
-  }
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+}
+
+  .dark-theme .footer__occupation {
+    color: var(--white);
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+}
+
   .footer__btn {
     margin-inline: 4rem;
     flex-grow: 1;
   }
+
   .designer {
     color: var(--middle-grey);
     padding: .5rem 0;
@@ -272,13 +410,16 @@ span {
   .job__header {
     top: -6rem;
   }
+
   .job__offer {
     margin: 0 auto;
     max-width: 90rem;
   }
+
   .job__footer {
     margin: 0 auto;
   }
+
   .job__footer--desktop {
     margin: 0 auto;
     max-width: 90rem;

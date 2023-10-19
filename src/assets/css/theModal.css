@@ -11,6 +11,10 @@
   display: none;
 }
 
+.modal-paragraph{
+  text-align: justify;
+}
+
 @media screen and (min-width:768px) {
   .ant-modal {
     width: min(145rem, 100%) !important;

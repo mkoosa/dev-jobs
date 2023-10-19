@@ -41,7 +41,11 @@ span:last-of-type {
     margin-right: 0.6rem;
     background: var(--light-grey);
     margin-left: 0.5rem;
-  }
+    -webkit-border-radius: 0.4rem;
+    -moz-border-radius: 0.4rem;
+    -ms-border-radius: 0.4rem;
+    -o-border-radius: 0.4rem;
+}
 
   .from {
     font-size: 1.5rem;
