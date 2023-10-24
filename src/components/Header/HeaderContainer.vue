@@ -8,7 +8,6 @@
 </template>
 
 <script setup>
-import SwitcherColorSchema from "@/components/Shared/SwitcherColorSchema.vue"
-import HeaderHeading from "@/components/Header/HeaderHeading.vue"
+import SwitcherColorSchema from '@/components/Shared/SwitcherColorSchema.vue';
+import HeaderHeading from '@/components/Header/HeaderHeading.vue';
 </script>
-
