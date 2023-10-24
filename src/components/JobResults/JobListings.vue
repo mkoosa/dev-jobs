@@ -7,30 +7,31 @@
   </div>
 </template>
 
-<script setup>
-import JobListing from "@/components/JobResults/JobListing.vue";
-import ActionBtn from "@/components/Shared/ActionBtn.vue"
-import { jobStore, userStore } from "@/main";
+<script lang="ts" setup>
+import JobListing from '@/components/JobResults/JobListing.vue';
+import ActionBtn from '@/components/Shared/ActionBtn.vue';
+import { jobStore, userStore } from '@/main';
 import { useRouter } from 'vue-router';
-import { computed, onMounted } from 'vue'
+import { computed, onMounted } from 'vue';
 
 const router = useRouter();
 
-const jobs = computed(() => jobStore.JOBS_ON_PAGE)
+const jobs = computed(() => jobStore.JOBS_ON_PAGE);
 const isSearchingActive = computed(() => {
-  return jobStore.jobs.length > jobStore.FILTERED_JOBS_BY_RULES.length && !userStore.fullTime ? true : false
-})
+  return jobStore.jobs.length > jobStore.FILTERED_JOBS_BY_RULES.length && !userStore.fullTime
+    ? true
+    : false;
+});
 
 const cancelJobSearching = () => {
   if (!userStore.fullTime) {
     //simulate searching for jobs with empty values => got full array of jobs
     router.push({ name: 'Main' });
-    userStore.updateUserOptions(['', ''])
+    userStore.updateUserOptions(['', '']);
   }
 };
 
 onMounted(async () => {
   await jobStore.FETCH_JOBS();
-})
+});
 </script>
-

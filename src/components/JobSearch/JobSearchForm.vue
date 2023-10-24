@@ -19,11 +19,7 @@
     <div data-testid="fl-elements" class="flying-elements" :class="addRemoveClass">
       <form-elements
         element="text"
-        :classElement="[
-          'form__element',
-          'form__element--filter-by-location',
-          'flying-element',
-        ]"
+        :classElement="['form__element', 'form__element--filter-by-location', 'flying-element']"
       >
         <the-close :action="closeFlyingElements" classIconElement="close_icon" />
         <font-awesome-icon class="form__icon form__icon-location" :icon="['fas', 'location-dot']" />
@@ -43,24 +39,24 @@
   </form>
 </template>
 
-<script setup>
-import TextInput from "@/components/Shared/TextInput.vue";
-import ActionBtn from "@/components/Shared/ActionBtn.vue";
-import FormElements from "@/components/Shared/FormElements.vue";
-import TheClose from "@/components//Shared/TheClose.vue";
-import { useRouter } from "vue-router";
-import { ref, computed } from "vue";
-import { blurStore, userStore, jobStore } from "@/main";
+<script lang="ts" setup>
+import TextInput from '@/components/Shared/TextInput.vue';
+import ActionBtn from '@/components/Shared/ActionBtn.vue';
+import FormElements from '@/components/Shared/FormElements.vue';
+import TheClose from '@/components//Shared/TheClose.vue';
+import { useRouter } from 'vue-router';
+import { ref, computed } from 'vue';
+import { blurStore, userStore, jobStore } from '@/main';
 
-const location = ref("");
-const tittle = ref("");
+const location = ref('');
+const tittle = ref('');
 const isActiveClass = ref(false);
 const router = useRouter();
 
 const jobSearch = () => {
   router.push({
-    name: "Main",
-    query: { tittle: tittle.value, location: location.value },
+    name: 'Main',
+    query: { tittle: tittle.value, location: location.value }
   });
   const options = [tittle.value, location.value];
   userStore.updateUserOptions(options);
@@ -70,7 +66,7 @@ const jobSearch = () => {
 
 const noResultsPage = () => {
   if (!jobStore.FILTERED_JOBS_BY_RULES.length) {
-    router.push({ name: "NoResults" });
+    router.push({ name: 'NoResults' });
   }
 };
 
@@ -89,13 +85,11 @@ const closeFlyingElements = () => {
 };
 
 const resetFormInputsValue = () => {
-  location.value = "";
-  tittle.value = "";
+  location.value = '';
+  tittle.value = '';
 };
 
 const onlyFullTimeJob = () => (userStore.fullTime = !userStore.fullTime);
-const addRemoveClass = computed(() => (isActiveClass.value ? "active" : ""));
-const changeButtonContent = computed(() =>
-  isActiveClass.value ? "Full Time Only" : "Full Time"
-);
+const addRemoveClass = computed(() => (isActiveClass.value ? 'active' : ''));
+const changeButtonContent = computed(() => (isActiveClass.value ? 'Full Time Only' : 'Full Time'));
 </script>

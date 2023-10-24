@@ -3,36 +3,33 @@
     <slot></slot>
   </div>
   <div v-if="element == 'checkbox'" :class="classElement">
-    <input 
-     @click="emit('some-event')"
-     type="checkbox" 
-     id="full-time" />
+    <input @click="emit('some-event')" type="checkbox" id="full-time" />
     <label role="label" :class="classLabel" :for="forText">{{ text }}</label>
     <slot></slot>
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 defineProps({
   element: {
     type: String,
-    required: true,
+    required: true
   },
   classLabel: {
-    type: String,
+    type: String
   },
   forText: {
-    type: String,
+    type: String
   },
 
   text: {
-    type: String,
+    type: String
   },
   classElement: {
     type: Object,
-    required: true,
-  },
+    required: true
+  }
 });
 
-const emit = defineEmits(['some-event'])
+const emit = defineEmits(['some-event']);
 </script>

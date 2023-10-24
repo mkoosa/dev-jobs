@@ -1,7 +1,13 @@
 <template>
-  <input class="form__input" type="text" :value="modelValue" :placeholder="placeholder" @input="handleInput">
+  <input
+    class="form__input"
+    type="text"
+    :value="modelValue"
+    :placeholder="placeholder"
+    @input="handleInput"
+  />
 </template>
-<script setup>
+<script lang="ts" setup>
 defineProps({
   modelValue: {
     type: String,
@@ -11,14 +17,13 @@ defineProps({
     type: String,
     required: true
   }
-})
+});
 
-const emit = defineEmits(["update:modelValue"]);
-const handleInput = (event) => {
-  const target = event.target;
-  emit("update:modelValue", target.value)
-}
-
+const emit = defineEmits(['update:modelValue']);
+const handleInput = (event: Event) => {
+  const target = event.target as HTMLInputElement;
+  emit('update:modelValue', target.value);
+};
 </script>
 
 <style scoped>

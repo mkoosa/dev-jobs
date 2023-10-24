@@ -6,19 +6,17 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import HeaderContainer from '@/components/Header/HeaderContainer.vue';
-import TheModal from '@/components/View/TheModal.vue'
-import { computed, onMounted } from "vue";
+import TheModal from '@/components/View/TheModal.vue';
+import { computed, onMounted } from 'vue';
 import useBlur from '@/stores/blur';
-import { modalStore } from "@/main";
+import { modalStore } from '@/main';
 import Storage from '@/api/storage';
 
-const blur = useBlur()
-const addRemoveClass = computed(() => blur.BLUR ? 'blur' : '');
-const prepareStorage =() => new Storage('modal', true) 
-
-
+const blur = useBlur();
+const addRemoveClass = computed(() => (blur.BLUR ? 'blur' : ''));
+const prepareStorage = () => new Storage('modal', 'true');
 
 onMounted(() => {
   setTimeout(() => {
@@ -26,9 +24,8 @@ onMounted(() => {
     if (!storage.getStorage()) {
       storage.setStorage();
       modalStore.activateModal();
-      storage.removeStorage()
+      storage.removeStorage();
     }
-  }, 1500)
-})
-
+  }, 1500);
+});
 </script>

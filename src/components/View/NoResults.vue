@@ -6,16 +6,15 @@
   </a-result>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { useRouter } from 'vue-router';
-import { userStore, blurStore } from "@/main";
+import { userStore, blurStore } from '@/main';
 const router = useRouter();
 const backToMain = () => {
-
   router.push({ name: 'Main' });
   console.log('blur out');
   if (blurStore.BLUR) blurStore.ACTIVATE_BLUR();
   //simulate searching for jobs with empty values => got full array of jobs
   userStore.updateUserOptions(['', '']);
-}
+};
 </script>

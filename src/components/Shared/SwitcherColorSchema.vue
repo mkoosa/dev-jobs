@@ -1,6 +1,6 @@
 <template>
   <div class="switcher">
-    <img src="../../../src/assets/desktop/icon-sun.svg" alt="sun">
+    <img src="../../../src/assets/desktop/icon-sun.svg" alt="sun" />
     <div role="button" class="toggle-container" @click="CHANGE_COLOR_SCHEMA">
       <div class="circle"></div>
     </div>
@@ -8,11 +8,8 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import useColorSchemaStore from '@/stores/colorSchema';
-const colorSchemaStore = useColorSchemaStore()
-const CHANGE_COLOR_SCHEMA =  colorSchemaStore.CHANGE_COLOR_SCHEMA;
+const colorSchemaStore = useColorSchemaStore();
+const CHANGE_COLOR_SCHEMA = colorSchemaStore.CHANGE_COLOR_SCHEMA;
 </script>
-
-
-

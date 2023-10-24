@@ -4,7 +4,8 @@
       <img class="logo" :src="job.logo" alt="logo company" />
     </div>
     <p class="job__type">
-      <span>{{ job.postedAt }}</span><span class="dot">.</span><span>{{ job.contract }}</span>
+      <span>{{ job.postedAt }}</span
+      ><span class="dot">.</span><span>{{ job.contract }}</span>
     </p>
     <h2 class="job__position">{{ job.position }}</h2>
     <p class="job__company">{{ job.company }}</p>
@@ -12,14 +13,14 @@
   </RouterLink>
 </template>
 
-<script setup>
-import { computed } from "vue";
+<script lang="ts" setup>
+import { computed } from 'vue';
 
 const props = defineProps({
   job: {
     type: Object,
-    required: true,
-  },
+    required: true
+  }
 });
 
 const pageLink = computed(() => `/jobs/results/${props.job.id}`);
