@@ -1,5 +1,7 @@
 class Storage {
-  constructor(key, item) {
+  item: string;
+  key: string;
+  constructor(key: string, item: string) {
     this.item = item;
     this.key = key;
   }
