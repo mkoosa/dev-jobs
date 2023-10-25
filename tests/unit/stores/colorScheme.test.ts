@@ -18,9 +18,9 @@ describe('state', () => {
     });
     it('finds body tag and adds or removes class dark-theme from it', () => {
       const body = document.querySelector('body');
-      const colorSchemaStore = useColorSchemaStore();
-      colorSchemaStore.CHANGE_COLOR_SCHEMA();
       if (body !== null) {
+        const colorSchemaStore = useColorSchemaStore();
+        colorSchemaStore.CHANGE_COLOR_SCHEMA();
         body.classList.add('dark-theme');
         expect(body.className).toBe('dark-theme');
       }

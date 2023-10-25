@@ -15,35 +15,40 @@ const useJobsStore = defineStore('jobStore', () => {
   };
 
   const FILTERED_JOBS_BY_RULES = computed(() => {
-    let arrayWithJobs = JSON.parse(JSON.stringify(jobs.value));
-    let arrayWithOptions = JSON.parse(JSON.stringify(userStore.userOptions));
+    let arrayWithJobs: Job[] = JSON.parse(JSON.stringify(jobs.value));
+    let arrayWithOptions: string[] = JSON.parse(JSON.stringify(userStore.userOptions));
+    console.log(arrayWithJobs);
 
     //looking for jobs location + position
     if (arrayWithOptions[0] && arrayWithOptions[1]) {
-      arrayWithOptions.forEach((option: string) => {
+      arrayWithOptions.forEach((option) => {
         if (option) {
-          arrayWithJobs = arrayWithJobs.filter(
-            (job: Job) =>
-              job.location.toLowerCase().includes(option.toLowerCase()) ||
-              job.position.toLowerCase().includes(option.toLowerCase())
-          );
+          arrayWithJobs = arrayWithJobs.filter((job: Job) => {
+            if (job.location !== undefined && job.position !== undefined)
+              return (
+                job.location.toLowerCase().includes(option.toLowerCase()) ||
+                job.position.toLowerCase().includes(option.toLowerCase())
+              );
+          });
         }
         return arrayWithJobs;
       });
     }
     //looking for jobs location or position
     else if (arrayWithOptions[0] || arrayWithOptions[1]) {
-      arrayWithOptions.forEach((option: string) => {
+      arrayWithOptions.forEach((option) => {
         if (option) {
           if (arrayWithOptions[1]) {
-            arrayWithJobs = arrayWithJobs.filter((job: Job) =>
-              job.location.toLowerCase().includes(option.toLowerCase())
-            );
+            arrayWithJobs = arrayWithJobs.filter((job: Job) => {
+              if (job.location !== undefined)
+                return job.location.toLowerCase().includes(option.toLowerCase());
+            });
           }
           if (arrayWithOptions[0]) {
-            arrayWithJobs = arrayWithJobs.filter((job: Job) =>
-              job.position.toLowerCase().includes(option.toLowerCase())
-            );
+            arrayWithJobs = arrayWithJobs.filter((job: Job) => {
+              if (job.position !== undefined)
+                return job.position.toLowerCase().includes(option.toLowerCase());
+            });
           }
           return arrayWithJobs;
         }
@@ -58,7 +63,7 @@ const useJobsStore = defineStore('jobStore', () => {
   });
 
   //amount of job offers on page
-  const JOBS_ON_PAGE: ComputedRef<number> = computed(() =>
+  const JOBS_ON_PAGE: ComputedRef<Job[]> = computed(() =>
     FILTERED_JOBS_BY_RULES.value.slice(
       (paginationStore.CURRENT_PAGE - 1) * 9,
       9 * paginationStore.CURRENT_PAGE
