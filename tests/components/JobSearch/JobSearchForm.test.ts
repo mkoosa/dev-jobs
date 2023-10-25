@@ -1,15 +1,19 @@
-import { render, screen } from '@testing-library/vue';
-import userEvent from '@testing-library/user-event';
-import JobSearchForm from '@/components/JobSearch/JobSearchForm.vue';
+import { createPinia, setActivePinia } from 'pinia';
 import { describe, expect, vi } from 'vitest';
 import { useRouter } from 'vue-router';
-import { setActivePinia, createPinia } from 'pinia'
+
+import JobSearchForm from '@/components/JobSearch/JobSearchForm.vue';
+import userEvent from '@testing-library/user-event';
+import { render, screen } from '@testing-library/vue';
+
+import type { Mock } from 'vitest';
 vi.mock('vue-router');
+const useRouteMock = useRouter as Mock;
 
 describe('JobSearchForm', () => {
-  setActivePinia(createPinia())
+  setActivePinia(createPinia());
   const push = vi.fn();
-  useRouter.mockReturnValue({ push });
+  useRouteMock.mockReturnValue({ push });
   const renderJobSearchForm = () => {
     render(JobSearchForm, {
       global: {
@@ -33,7 +37,7 @@ describe('JobSearchForm', () => {
     const flElements = screen.getByTestId('fl-elements');
     expect(flElements).toHaveClass('active');
   });
-  
+
   it('retrieves value that user has entered to inputs ', async () => {
     renderJobSearchForm();
     const searchBtn = screen.getByRole('button', {
@@ -43,10 +47,7 @@ describe('JobSearchForm', () => {
     const jobSearch = vi.fn();
     jobSearch('Lublin');
     expect(jobSearch).toHaveBeenCalledWith('Lublin');
-    expect(push).toHaveBeenCalled({
-      name: 'JobResults',
-      query: { title: 'vue developer', location: 'Lublin' }
-    });
+    expect(push).toHaveBeenCalled();
   });
 
   describe('label content depending on screen sizes', () => {

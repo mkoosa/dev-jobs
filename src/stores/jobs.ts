@@ -1,10 +1,15 @@
 import { defineStore } from 'pinia';
+import { computed, ref } from 'vue';
+
 import getJobs from '@/api/getJobs';
-import { ref, computed } from 'vue';
 import { paginationStore, userStore } from '@/main';
 
+import type { ComputedRef } from 'vue';
+
+import type { Job } from '@/api/types';
+
 const useJobsStore = defineStore('jobStore', () => {
-  const jobs = ref([]);
+  const jobs = ref<Job[]>([]);
   const FETCH_JOBS = async () => {
     jobs.value = await getJobs();
   };
@@ -12,13 +17,15 @@ const useJobsStore = defineStore('jobStore', () => {
   const FILTERED_JOBS_BY_RULES = computed(() => {
     let arrayWithJobs = JSON.parse(JSON.stringify(jobs.value));
     let arrayWithOptions = JSON.parse(JSON.stringify(userStore.userOptions));
-  
+
     //looking for jobs location + position
     if (arrayWithOptions[0] && arrayWithOptions[1]) {
-      arrayWithOptions.forEach((option) => {
+      arrayWithOptions.forEach((option: string) => {
         if (option) {
           arrayWithJobs = arrayWithJobs.filter(
-            (job) => job.location.toLowerCase().includes(option.toLowerCase()) || job.position.toLowerCase().includes(option.toLowerCase())
+            (job: Job) =>
+              job.location.toLowerCase().includes(option.toLowerCase()) ||
+              job.position.toLowerCase().includes(option.toLowerCase())
           );
         }
         return arrayWithJobs;
@@ -26,13 +33,17 @@ const useJobsStore = defineStore('jobStore', () => {
     }
     //looking for jobs location or position
     else if (arrayWithOptions[0] || arrayWithOptions[1]) {
-      arrayWithOptions.forEach((option) => {
+      arrayWithOptions.forEach((option: string) => {
         if (option) {
           if (arrayWithOptions[1]) {
-            arrayWithJobs = arrayWithJobs.filter((job) => job.location.toLowerCase().includes(option.toLowerCase()));
+            arrayWithJobs = arrayWithJobs.filter((job: Job) =>
+              job.location.toLowerCase().includes(option.toLowerCase())
+            );
           }
           if (arrayWithOptions[0]) {
-            arrayWithJobs = arrayWithJobs.filter((job) => job.position.toLowerCase().includes(option.toLowerCase()));
+            arrayWithJobs = arrayWithJobs.filter((job: Job) =>
+              job.position.toLowerCase().includes(option.toLowerCase())
+            );
           }
           return arrayWithJobs;
         }
@@ -40,15 +51,14 @@ const useJobsStore = defineStore('jobStore', () => {
     }
     ////looking for full time only
     if (userStore.FULL_TIME) {
-      return arrayWithJobs.filter((job) => job.contract === 'Full Time');
+      return arrayWithJobs.filter((job: Job) => job.contract === 'Full Time');
     } else {
       return arrayWithJobs;
     }
   });
 
-  
   //amount of job offers on page
-  const JOBS_ON_PAGE = computed(() =>
+  const JOBS_ON_PAGE: ComputedRef<number> = computed(() =>
     FILTERED_JOBS_BY_RULES.value.slice(
       (paginationStore.CURRENT_PAGE - 1) * 9,
       9 * paginationStore.CURRENT_PAGE

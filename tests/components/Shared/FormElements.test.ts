@@ -1,10 +1,16 @@
-import { test, expect } from 'vitest';
-import { mount } from '@vue/test-utils';
-import FormElements from '@/components/Shared/FormElements.vue';
-import { RouterLinkStub } from '@vue/test-utils';
-import { render, screen } from '@testing-library/vue';
-import userEvent from '@testing-library/user-event';
+import { expect, test } from 'vitest';
 
+import FormElements from '@/components/Shared/FormElements.vue';
+import userEvent from '@testing-library/user-event';
+import { render, screen } from '@testing-library/vue';
+import { mount, RouterLinkStub } from '@vue/test-utils';
+
+interface Props{
+  element?:string
+  classElement?:string[]
+  text?:string
+
+}
 
 describe('FormElements', () => {
   const createProps = (props = {}) => ({

@@ -2,12 +2,8 @@
   <div v-if="currentJob">
     <div class="job">
       <div class="job__header">
-        <div class="job__logo"
-         :style="{ backgroundColor: currentJob.logoBackground }"
-         >
-        <img
-         class="logo"
-          :src="currentJob.logo" alt="logo company">
+        <div class="job__logo" :style="{ backgroundColor: currentJob.logoBackground }">
+          <img class="logo" :src="currentJob.logo" alt="logo company" />
         </div>
         <div class="job__company">
           <div class="about">
@@ -15,27 +11,28 @@
             <p class="company__page">{{ currentJob.company.toLowerCase() + '.com' }}</p>
           </div>
           <action-btn
-           text="Company Site"
-           class="company-btn" 
-           @click="openCompanyPage(currentJob.website)"
-           />
+            text="Company Site"
+            class="company-btn"
+            @click="openCompanyPage(currentJob.website)"
+          />
         </div>
       </div>
       <div class="job__offer">
-        <the-close classIconElement="back" :action="backToJobResults"/>
+        <the-close classIconElement="back" :action="backToJobResults" />
         <div class="offer__header">
           <div class="company__details">
             <p class="offer__type">
-              <span>{{ currentJob.postedAt }}</span><span class="dot">.</span><span>{{ currentJob.contract }}</span>
+              <span>{{ currentJob.postedAt }}</span
+              ><span class="dot">.</span><span>{{ currentJob.contract }}</span>
             </p>
             <h2 class="offer__occupation">{{ currentJob.position }}</h2>
             <p class="offer__location">{{ currentJob.location }}</p>
           </div>
           <action-btn
-           text="Apply Now" 
-           class="apply-btn" 
-           @click="openCompanyPage(currentJob.website)"
-           />
+            text="Apply Now"
+            class="apply-btn"
+            @click="openCompanyPage(currentJob.website)"
+          />
         </div>
         <p class="offer__details">
           {{ currentJob.content }}
@@ -54,18 +51,19 @@
           <p class="task__details">
             {{ currentJob.role.content }}
           </p>
-          <ol
-           class="task__list" 
-           v-for="(item) in currentJob.role.items" :key="item"
-           >
+          <ol class="task__list" v-for="item in currentJob.role.items" :key="item">
             <li class="task__list-element">{{ item }}</li>
           </ol>
         </div>
       </div>
     </div>
-    <div class="job__footer job__footer--mobile ">
+    <div class="job__footer job__footer--mobile">
       <div class="footer__btn">
-        <action-btn text="Apply Now" class="apply-btn" @click="openCompanyPage(currentJob.website)"/>
+        <action-btn
+          text="Apply Now"
+          class="apply-btn"
+          @click="openCompanyPage(currentJob.website)"
+        />
       </div>
     </div>
     <div class="job__footer">
@@ -74,10 +72,10 @@
           <h2 class="footer__occupation">{{ currentJob.position }}</h2>
           <p class="designer">So Digital Inc.</p>
         </div>
-        <action-btn 
-        text="Apply Now" 
-        class="apply-btn apply-btn--desktop" 
-        @click="openCompanyPage(currentJob.website)"
+        <action-btn
+          text="Apply Now"
+          class="apply-btn apply-btn--desktop"
+          @click="openCompanyPage(currentJob.website)"
         />
       </div>
     </div>
@@ -86,37 +84,32 @@
     <the-spinner />
   </div>
 </template>
-<script setup>
-
-import ActionBtn from "@/components/Shared/ActionBtn.vue";
+<script lang="ts" setup>
+import ActionBtn from '@/components/Shared/ActionBtn.vue';
 import TheSpinner from '@/components/Shared/TheSpinner.vue';
-import TheClose from "@/components/Shared/TheClose.vue"
+import TheClose from '@/components/Shared/TheClose.vue';
 
-import { useRoute,useRouter } from "vue-router"
-import { computed, onMounted } from "vue";
-import { jobStore } from "@/main";
-
+import { useRoute, useRouter } from 'vue-router';
+import { computed, onMounted } from 'vue';
+import { jobStore } from '@/main';
 
 const route = useRoute();
 const router = useRouter();
 const currentJob = computed(() => {
-  
-  let jobId = route.params.id
-  let job = jobStore.jobs.filter((item) => item.id === +jobId) //pars to int
-  return job[0]
-})
+  let jobId = route.params.id;
+  let job = jobStore.jobs.filter((item) => item.id === +jobId); //pars to int
+  return job[0];
+});
 
-const openCompanyPage = (page) => {
-  window.location.href = page
-}
+const openCompanyPage = (page: string) => {
+  window.location.href = page;
+};
 
-const backToJobResults = ()=> router.push({name:'Main'})
+const backToJobResults = () => router.push({ name: 'Main' });
 
 onMounted(async () => {
   // await jobStore.FETCH_JOBS();
-})
-
-
+});
 </script>
 
 <style scoped>

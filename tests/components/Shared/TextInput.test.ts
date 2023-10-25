@@ -1,6 +1,6 @@
-import TextInput from '@/components/shared/TextInput.vue';
-import { render, screen } from '@testing-library/vue';
+import TextInput from '@/components/Shared/TextInput.vue';
 import userEvent from '@testing-library/user-event';
+import { render, screen } from '@testing-library/vue';
 
 describe('TextInput', () => {
   it('communicates that user has entered characters', async () => {
@@ -11,7 +11,7 @@ describe('TextInput', () => {
       },
       global: {
         stubs: {
-          FontAwesomeIcon: true,
+          FontAwesomeIcon: true
         }
       }
     });
