@@ -1,20 +1,27 @@
 # Frontend Mentor - Devjobs web app solution
-This is a solution to the [Devjobs web app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/devjobs-web-app-HuvC_LP4l).
+
+This is a solution to the [Devjobs web app challenge on Frontend Mentor]
+<https://www.frontendmentor.io/challenges/devjobs-web-app-HuvC_LP4l>.
+
 ## Overview
+
 Dev-job is a single-page application built on the Vue3 framework. Data is stored in the "cloud".
 The components along with their implementation and functionalities have been tested using the recommended testing libraries.
+
 ### The challenge
 
 Users should be able to:
 
 - View the optimal layout for each page depending on their device's screen size
 - See hover states for all interactive elements throughout the site
-- Be able to filter jobs on the index page by title, location, and whether a job is for a full-time position
+- Be able to filter jobs on the index page by title, location, and whether job by full-time position
 - Be able to click a job from the index page so that they can read more information and apply for the job
-- Change between prefered color schema
+- Change between color schemas (dark and light mode)
 
 ### Built with
 
+- Java Script
+- Type Script
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
@@ -33,12 +40,10 @@ Users should be able to:
 - how to built modern single page aplication
 - use Vue framework with different dependencies
 - build application based on one common store
-- navigate between componenst by using routes
+- navigate between components by using routes
 - how to test app with unit tests
-
-### Continued development
-
-I am going as the next step rebuild project with type script
+- improve type script
 
 ## Author
+
 KoOsa
