@@ -17,7 +17,7 @@ import Storage from '@/api/storage';
 
 const open = ref(false);
 const modalStore = useModalStore();
-const prepareStorage = () => new Storage('modal', true);
+const prepareStorage = () => new Storage('modal', 'true');
 
 const showModal = () => {
   open.value = true;
@@ -27,8 +27,9 @@ const confirmStorage = () => {
   const storage = prepareStorage();
   storage.setStorage();
 };
-const handleOk = (e) => {
-  if (e.target.innerText === 'OK') confirmStorage();
+const handleOk = (e: Event) => {
+  const target = e.target as HTMLInputElement;
+  if (target.innerText === 'OK') confirmStorage();
   open.value = false;
 };
 
