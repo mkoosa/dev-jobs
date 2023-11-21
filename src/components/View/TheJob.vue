@@ -34,9 +34,6 @@
             @click="openCompanyPage(currentJob.website)"
           />
         </div>
-        <p class="offer__details">
-          {{ currentJob.content }}
-        </p>
         <div class="offer__requirements">
           <h2 class="requirements__heading">Requirements</h2>
           <p class="requirements__details">
@@ -97,19 +94,17 @@ const route = useRoute();
 const router = useRouter();
 const currentJob = computed(() => {
   let jobId = route.params.id;
-  let job = jobStore.jobs.filter((item) => item.id === +jobId); //pars to int
+  let job = jobStore.jobs.filter((item) => item.id === +jobId);
+  console.log(job[0]);
+  //pars to int
   return job[0];
 });
 
-const openCompanyPage = (page: string) => {
+const openCompanyPage = (page: string = '') => {
   window.location.href = page;
 };
 
 const backToJobResults = () => router.push({ name: 'Main' });
-
-onMounted(async () => {
-  // await jobStore.FETCH_JOBS();
-});
 </script>
 
 <style scoped>
