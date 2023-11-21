@@ -1,10 +1,10 @@
 <template>
-  <div class="jobs">
+  <section role="list" class="jobs">
     <job-listing role="link" v-for="job in jobs" :key="job.id" :job="job" />
     <div v-if="isSearchingActive" class="cancel-btn__wrapper">
       <ActionBtn @click="cancelJobSearching()" class="cancel-btn" text="cancel" />
     </div>
-  </div>
+  </section>
 </template>
 
 <script lang="ts" setup>

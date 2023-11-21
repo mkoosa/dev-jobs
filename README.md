@@ -1,9 +1,4 @@
-# Devjobs web app solution
-
-This is a solution to the [Devjobs web app challenge on Frontend Mentor]
-<https://www.frontendmentor.io/challenges/devjobs-web-app-HuvC_LP4l>.
-
-## Installation
+# Installation
 
 1.Clone repository to VSCode
 2.Run command npm install
@@ -53,4 +48,5 @@ Users should be able to:
 
 ## Developer
 
+This is a solution to the [Devjobs web app challenge on Frontend Mentor]
 KoOsa

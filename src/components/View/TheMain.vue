@@ -1,10 +1,10 @@
 <template>
-  <div class="main">
+  <main class="main">
     <job-search-form @item-clicked="isActiveClass" />
     <the-spinner v-if="isLoaded" />
     <job-listings />
     <the-pagination />
-  </div>
+  </main>
 </template>
 
 <script lang="ts" setup>

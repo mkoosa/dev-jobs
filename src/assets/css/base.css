@@ -39,7 +39,7 @@ html {
 }
 
 /* avoiding zooming by touching mobile device's  display */
-@media screen and (-webkit-min-device-pixel-ratio:0) { 
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
   select,
   textarea,
   input {
@@ -49,7 +49,6 @@ html {
 
 * {
   font-family: 'Kumbh Sans', sans-serif;
-
 }
 
 ol,
@@ -82,32 +81,32 @@ h6 {
 /* semantic color variables for this project */
 :root {
   --white: #ffffff;
-  --light-grey: #F4F6F8;
+  --light-grey: #f4f6f8;
   --grey: #9daec2;
   --middle-grey: #86929f;
   --dark-grey: #6b8c93;
-  --dark-grey-lower-opacity: rgba(110, 144, 152, .3);
+  --dark-grey-lower-opacity: rgba(110, 144, 152, 0.3);
 
-  --violet: #5964E0;
+  --violet: #5964e0;
   --middle-violet: #9095d3;
   --light-violet: #939bf4;
 
   --very-dark-blue: #19202d;
   --midnight: #121721;
   --midnight-light: #1d2433;
-  --dark: #03001C;
+  --dark: #03001c;
   --dark-btn: #323042;
   --dark-btn--hover: #53525e;
 }
 
-.router-link-exact-active{
+.router-link-exact-active {
   color: var(--violet);
 }
 .wrapper {
   margin-inline: auto;
   max-width: 145rem;
   background: var(--light-grey);
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 body {
@@ -122,19 +121,19 @@ p {
 /* dark mode  */
 body,
 .wrapper {
-  transition: all .1s;
-  -webkit-transition: all .1s;
-  -moz-transition: all .1s;
-  -ms-transition: all .1s;
-  -o-transition: all .1s;
+  transition: all 0.1s;
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  -ms-transition: all 0.1s;
+  -o-transition: all 0.1s;
 }
 
 body.dark-theme,
 .dark-theme .wrapper {
   background: var(--midnight);
-  transition: all .1s;
-  -webkit-transition: all .1s;
-  -moz-transition: all .1s;
-  -ms-transition: all .1s;
-  -o-transition: all .1s;
+  transition: all 0.1s;
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  -ms-transition: all 0.1s;
+  -o-transition: all 0.1s;
 }

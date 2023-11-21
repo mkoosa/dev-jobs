@@ -17,7 +17,6 @@ const useJobsStore = defineStore('jobStore', () => {
   const FILTERED_JOBS_BY_RULES = computed(() => {
     let arrayWithJobs: Job[] = JSON.parse(JSON.stringify(jobs.value));
     let arrayWithOptions: string[] = JSON.parse(JSON.stringify(userStore.userOptions));
-    console.log(arrayWithJobs);
 
     //looking for jobs location + position
     if (arrayWithOptions[0] && arrayWithOptions[1]) {

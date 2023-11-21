@@ -1,7 +1,7 @@
 <template>
   <div v-if="currentJob">
     <div class="job">
-      <div class="job__header">
+      <header class="job__header">
         <div class="job__logo" :style="{ backgroundColor: currentJob.logoBackground }">
           <img class="logo" :src="currentJob.logo" alt="logo company" />
         </div>
@@ -16,8 +16,8 @@
             @click="openCompanyPage(currentJob.website)"
           />
         </div>
-      </div>
-      <div class="job__offer">
+      </header>
+      <main class="job__offer">
         <the-close classIconElement="back" :action="backToJobResults" />
         <div class="offer__header">
           <div class="company__details">
@@ -52,9 +52,9 @@
             <li class="task__list-element">{{ item }}</li>
           </ol>
         </div>
-      </div>
+      </main>
     </div>
-    <div class="job__footer job__footer--mobile">
+    <footer class="job__footer job__footer--mobile">
       <div class="footer__btn">
         <action-btn
           text="Apply Now"
@@ -62,8 +62,8 @@
           @click="openCompanyPage(currentJob.website)"
         />
       </div>
-    </div>
-    <div class="job__footer">
+    </footer>
+    <footer class="job__footer">
       <div class="job__footer--desktop">
         <div class="footer__details">
           <h2 class="footer__occupation">{{ currentJob.position }}</h2>
@@ -75,7 +75,7 @@
           @click="openCompanyPage(currentJob.website)"
         />
       </div>
-    </div>
+    </footer>
   </div>
   <div class="spinner" v-else>
     <the-spinner />

@@ -1,10 +1,10 @@
 <template>
-  <div class="header">
+  <header class="header">
     <div class="header__content">
       <header-heading />
       <switcher-color-schema />
     </div>
-  </div>
+  </header>
 </template>
 
 <script lang="ts" setup>

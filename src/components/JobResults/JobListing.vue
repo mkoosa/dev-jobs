@@ -1,5 +1,5 @@
 <template>
-  <RouterLink :to="pageLink" class="job">
+  <RouterLink :to="pageLink" class="job" role="link">
     <div class="logo-wrapper" :style="{ backgroundColor: job.logoBackground }">
       <img class="logo" :src="job.logo" alt="logo company" />
     </div>
